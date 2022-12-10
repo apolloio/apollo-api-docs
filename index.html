@@ -463,7 +463,7 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='https://www.apollo.io/app/#/settings/integrations/api'>Sign Up for an API Key</a></li>
+            <li><a href='https://app.apollo.io/#/settings/integrations/api'>Sign Up for an API Key</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -508,7 +508,7 @@ curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">
 <p>If authentication is successful, you should expect to see {&quot;is_logged_in&quot;:true}</p>
 </blockquote>
 
-<p>Apollo uses API keys to allow access to the API. You may request an API key <a href="https://www.apollo.io/app/#/settings/integrations/api">here</a></p>
+<p>Apollo uses API keys to allow access to the API. You may request an API key <a href="https://app.apollo.io/#/settings/integrations/api">here</a></p>
 
 <p>Apollo expects the API key to be included in all API requests to the server as a query string parameter. </p>
 
@@ -3155,10 +3155,6 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <td>page</td>
 <td>which page to return. Defaults to 1</td>
 </tr>
-<tr>
-<td>per_page</td>
-<td>how many contacts to return per page. Max = 200</td>
-</tr>
 </tbody></table>
 <h2 id='get-a-list-of-contact-stages'>Get a List of Contact Stages</h2>
 <blockquote>
@@ -3811,10 +3807,6 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <td>page</td>
 <td>which page to return. Defaults to 1</td>
 </tr>
-<tr>
-<td>per_page</td>
-<td>how many accounts to return per page. Max = 200</td>
-</tr>
 </tbody></table>
 <h2 id='get-a-list-of-account-stages'>Get a List of Account Stages</h2>
 <blockquote>
@@ -4142,7 +4134,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "send_email_from_email_account_id": "email_account_id",
     "sequence_active_in_other_campaigns": false,
     "sequence_no_email": false,
-    "sequence_finished_in_other_campaigns": false,    
+    "sequence_finished_in_other_campaigns": false   
 }'</span> <span class="s2">"https://api.apollo.io/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
@@ -4156,7 +4148,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     <span class="s">"send_email_from_email_account_id"</span><span class="p">:</span> <span class="s">"email_account_id"</span><span class="p">,</span>
     <span class="s">"sequence_active_in_other_campaigns"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
     <span class="s">"sequence_no_email"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
-    <span class="s">"sequence_finished_in_other_campaigns"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>    
+    <span class="s">"sequence_finished_in_other_campaigns"</span><span class="p">:</span> <span class="bp">False</span>    
 <span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -4619,7 +4611,6 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"sort_by_field"</span><span class="p">:</span> <span class="s">"task_created_at"</span><span class="p">,</span>
-    <span class="s">"per_page"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
     <span class="s">"open_factor_names"</span><span class="p">:</span> <span class="p">[</span>
         <span class="s">"task_types"</span>
     <span class="p">]</span>
@@ -4953,11 +4944,6 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <td>open_factor_names (required)</td>
 <td>This is a required field and must be passed in with the request</td>
 <td>[&quot;task_types&quot;]</td>
-</tr>
-<tr>
-<td>per_page</td>
-<td>how many tasks to return per page. Max = 200</td>
-<td>100</td>
 </tr>
 </tbody></table>
 <h1 id='misc'>Misc</h1><h2 id='get-a-list-of-users'>Get a List of Users</h2>
