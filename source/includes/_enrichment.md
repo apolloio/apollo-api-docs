@@ -5,6 +5,7 @@
 ```shell
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE",
+    "reveal_personal_emails": true,
     "details": [
         {
             "first_name": "Tim",
@@ -30,6 +31,7 @@ url = "https://api.apollo.io/api/v1/people/bulk_match"
 
 data = {
     "api_key": "YOUR API KEY HERE",
+    "reveal_personal_emails": true,
     "details": [
         {
             "first_name": "Tim",
@@ -385,6 +387,10 @@ print(response.text)
             }
          ]
       }
+   ], 
+   "personal_emails": [
+       "personalemail1@domain.com",
+       "personalemail2@domain.com"
    ]
 }
 ```
@@ -396,7 +402,7 @@ Up to 10 records can be enriched at the same time through this endpoint.
 
 ### Credit Usage
 
-The enrich endpoint charges you credits for its usage. If a verified email is successfully returned, it will cost you 1 credit. If an email is not found, but Apollo successfully found ALL of the following information: Name, Linkedin Profile, Current Company Information, Apollo will charge a fraction of a credit. Typically this is 0.01 credit per successful enrichment without email. But it may be higher depending on your specific plan.
+The enrich endpoint charges you credits for its usage. If a verified email is successfully returned or the list of personal emails is revealed, it will cost you 1 credit. If an email is not found, but Apollo successfully found ALL of the following information: Name, Linkedin Profile, Current Company Information, Apollo will charge a fraction of a credit. Typically this is 0.01 credit per successful enrichment without email. But it may be higher depending on your specific plan.
 
 
 Duplicate enrichments of the same record will not be charged credits. 
@@ -418,6 +424,7 @@ email (optional) | The person's email | example@domani.com
 organization_name (optional) | The person's company name | Apollo Inc.
 domain (optional) | The person's company domain | apollo.io
 id (optional) |  The person's ID obtained from the search endpoint | "583f2f7ed9ced98ab5bfXXXX"
+reveal_personal_emails (optional) | Flag to reveal personal emails | true
 
 
 ## Bulk Organization Enrichment
@@ -805,7 +812,8 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "last_name": "Zheng",
     "organization_name": "Apollo",
     "email": "name@domain.io",
-    "domain": "apollo.io"
+    "domain": "apollo.io",
+    "reveal_personal_emails": true
 }' "https://api.apollo.io/v1/people/match"
 ```
 
@@ -821,7 +829,8 @@ data = {
     "last_name": "Zheng",
     "organization_name": "Apollo",
     "email": "name@domain.io",
-    "domain": "apollo.io"
+    "domain": "apollo.io",
+    "reveal_personal_emails": true
 }
 
 headers = {
@@ -1017,14 +1026,18 @@ print(response.text)
                    ...
                 }
             ]
-        }
+        },
+        "personal_emails": [
+            "personalemail1@domain.com",
+            "personalemail2@domain.com"
+        ]
     }
 }
 ```
 
 This endpoint enriches a person's information, the more information you pass in, the more likely we can find a match.  
 
-The enrich endpoint charges you credits for its usage. If a verified email is successfully returned, it will cost you 1 credit. If an email is not found, but Apollo successfully found ALL of the following information: Name, Linkedin Profile, Current Company Information, Apollo will charge a fraction of a credit. Typically this is 0.01 credit per successful enrichment without email. But it may be higher depending on your specific plan.
+The enrich endpoint charges you credits for its usage. If a verified email is successfully returned or the list of personal emails is revealed, it will cost you 1 credit. If an email is not found, but Apollo successfully found ALL of the following information: Name, Linkedin Profile, Current Company Information, Apollo will charge a fraction of a credit. Typically this is 0.01 credit per successful enrichment without email. But it may be higher depending on your specific plan.
 
 The enrich endpoint charges credits even if the person is already in your CRM. The enrich endpoint also charges credits if you pass in the same information multiple times.
 
@@ -1041,6 +1054,7 @@ email (optional) | The person's email | example@domani.com
 organization_name (optional) | The person's company name | Apollo Inc.
 domain (optional) | The person's company domain | apollo.io
 id (optional) |  The person's ID obtained from the search endpoint | "583f2f7ed9ced98ab5bfXXXX"
+reveal_personal_emails (optional) | Flag to reveal personal emails | true
 
 
 ## Organization Enrichment
