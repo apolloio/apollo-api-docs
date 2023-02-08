@@ -594,18 +594,23 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 </tbody></table>
 <h1 id='enrichment-api'>Enrichment API</h1><h2 id='bulk-people-enrichment'>Bulk People Enrichment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
     "api_key": "YOUR API KEY HERE",
+    "reveal_personal_emails": true,
     "details": [
         {
             "first_name": "Tim",
             "last_name": "Zheng",
             "domain": "apollo.io",
             "email": "tim@apollo.io",
+            "email_md5": "8d935115b9ff4489f2d1f9249503cadf",
+            "email_sha256": "337dc0c1aad74f93af086dcf7dc0289f141c8ef5f44c3f104f07b0f03050ff49",
             "organization_name": "Apollo"
         },
         {
             "first_name": "Roy",
             "last_name": "Chung",
             "email": "roy@apollo.io",
+            "email_md5": "7328fddefd53de471baeb6e2b764f78a",
+            "email_sha256": "97817c0c49994eb500ad0a5e7e2d8aed51977b26424d508f66e4e8887746a152",
             "organization_name": "Apollo"
         }
     ]
@@ -616,11 +621,14 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
+    <span class="s">"reveal_personal_emails"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
     <span class="s">"details"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="s">"first_name"</span><span class="p">:</span> <span class="s">"Tim"</span><span class="p">,</span>
             <span class="s">"last_name"</span><span class="p">:</span> <span class="s">"Zheng"</span><span class="p">,</span>
             <span class="s">"domain"</span><span class="p">:</span> <span class="s">"apollo.io"</span><span class="p">,</span>
+            <span class="s">"email_md5"</span><span class="p">:</span> <span class="s">"8d935115b9ff4489f2d1f9249503cadf"</span><span class="p">,</span>
+            <span class="s">"email_sha256"</span><span class="p">:</span> <span class="s">"337dc0c1aad74f93af086dcf7dc0289f141c8ef5f44c3f104f07b0f03050ff49"</span><span class="p">,</span>
             <span class="s">"email"</span><span class="p">:</span> <span class="s">"tim@apollo.io"</span><span class="p">,</span>
             <span class="s">"organization_name"</span><span class="p">:</span> <span class="s">"Apollo"</span>
         <span class="p">},</span>
@@ -628,6 +636,8 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
             <span class="s">"first_name"</span><span class="p">:</span> <span class="s">"Roy"</span><span class="p">,</span>
             <span class="s">"last_name"</span><span class="p">:</span> <span class="s">"Chung"</span><span class="p">,</span>
             <span class="s">"email"</span><span class="p">:</span> <span class="s">"roy@apollo.io"</span><span class="p">,</span>
+            <span class="s">"email_md5"</span><span class="p">:</span> <span class="s">"7328fddefd53de471baeb6e2b764f78a"</span><span class="p">,</span>
+            <span class="s">"email_sha256"</span><span class="p">:</span> <span class="s">"97817c0c49994eb500ad0a5e7e2d8aed51977b26424d508f66e4e8887746a152"</span><span class="p">,</span>
             <span class="s">"organization_name"</span><span class="p">:</span> <span class="s">"Apollo"</span>
         <span class="p">}</span>
     <span class="p">]</span>
@@ -970,6 +980,10 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
             </span><span class="p">}</span><span class="w">
          </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w"> 
+   </span><span class="nl">"personal_emails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="s2">"personalemail1@domain.com"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"personalemail2@domain.com"</span><span class="w">
    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -977,7 +991,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 
 <p>Up to 10 records can be enriched at the same time through this endpoint. </p>
 <h3 id='credit-usage'>Credit Usage</h3>
-<p>The enrich endpoint charges you credits for its usage. If a verified email is successfully returned, it will cost you 1 credit. If an email is not found, but Apollo successfully found ALL of the following information: Name, Linkedin Profile, Current Company Information, Apollo will charge a fraction of a credit. Typically this is 0.01 credit per successful enrichment without email. But it may be higher depending on your specific plan.</p>
+<p>The enrich endpoint charges you credits for its usage. If a verified email is successfully returned or the list of personal emails is revealed, it will cost you 1 credit. If an email is not found, but Apollo successfully found ALL of the following information: Name, Linkedin Profile, Current Company Information, Apollo will charge a fraction of a credit. Typically this is 0.01 credit per successful enrichment without email. But it may be higher depending on your specific plan.</p>
 
 <p>Duplicate enrichments of the same record will not be charged credits. </p>
 <h3 id='rate-limits'>Rate Limits</h3>
@@ -1013,6 +1027,16 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <td>example@domani.com</td>
 </tr>
 <tr>
+<td>email_md5 (optional)</td>
+<td>The person&#39;s hashed email</td>
+<td>8d935115b9ff4489f2d1f9249503cadf</td>
+</tr>
+<tr>
+<td>email_sha256 (optional)</td>
+<td>The person&#39;s sha 256 hashed email</td>
+<td>97817c0c49994eb500ad0a5e7e2d8aed 51977b26424d508f66e4e8887746a152</td>
+</tr>
+<tr>
 <td>organization_name (optional)</td>
 <td>The person&#39;s company name</td>
 <td>Apollo Inc.</td>
@@ -1026,6 +1050,11 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <td>id (optional)</td>
 <td>The person&#39;s ID obtained from the search endpoint</td>
 <td>&quot;583f2f7ed9ced98ab5bfXXXX&quot;</td>
+</tr>
+<tr>
+<td>reveal_personal_emails (optional)</td>
+<td>Flag to reveal personal emails</td>
+<td>true</td>
 </tr>
 </tbody></table>
 <h2 id='bulk-organization-enrichment'>Bulk Organization Enrichment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
@@ -1406,7 +1435,10 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
     "last_name": "Zheng",
     "organization_name": "Apollo",
     "email": "name@domain.io",
-    "domain": "apollo.io"
+    "email_md5": "8d935115b9ff4489f2d1f9249503cadf",
+    "email_sha256": "337dc0c1aad74f93af086dcf7dc0289f141c8ef5f44c3f104f07b0f03050ff49",
+    "domain": "apollo.io",
+    "reveal_personal_emails": true
 }'</span> <span class="s2">"https://api.apollo.io/v1/people/match"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
@@ -1419,7 +1451,10 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
     <span class="s">"last_name"</span><span class="p">:</span> <span class="s">"Zheng"</span><span class="p">,</span>
     <span class="s">"organization_name"</span><span class="p">:</span> <span class="s">"Apollo"</span><span class="p">,</span>
     <span class="s">"email"</span><span class="p">:</span> <span class="s">"name@domain.io"</span><span class="p">,</span>
-    <span class="s">"domain"</span><span class="p">:</span> <span class="s">"apollo.io"</span>
+    <span class="s">"email_md5"</span><span class="p">:</span> <span class="s">"8d935115b9ff4489f2d1f9249503cadf"</span><span class="p">,</span>
+    <span class="s">"email_sha256"</span><span class="p">:</span> <span class="s">"337dc0c1aad74f93af086dcf7dc0289f141c8ef5f44c3f104f07b0f03050ff49"</span><span class="p">,</span>
+    <span class="s">"domain"</span><span class="p">:</span> <span class="s">"apollo.io"</span><span class="p">,</span>
+    <span class="s">"reveal_personal_emails"</span><span class="p">:</span> <span class="n">true</span>
 <span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -1614,13 +1649,17 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
                    </span><span class="err">...</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"personal_emails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"personalemail1@domain.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"personalemail2@domain.com"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint enriches a person&#39;s information, the more information you pass in, the more likely we can find a match.  </p>
 
-<p>The enrich endpoint charges you credits for its usage. If a verified email is successfully returned, it will cost you 1 credit. If an email is not found, but Apollo successfully found ALL of the following information: Name, Linkedin Profile, Current Company Information, Apollo will charge a fraction of a credit. Typically this is 0.01 credit per successful enrichment without email. But it may be higher depending on your specific plan.</p>
+<p>The enrich endpoint charges you credits for its usage. If a verified email is successfully returned or the list of personal emails is revealed, it will cost you 1 credit. If an email is not found, but Apollo successfully found ALL of the following information: Name, Linkedin Profile, Current Company Information, Apollo will charge a fraction of a credit. Typically this is 0.01 credit per successful enrichment without email. But it may be higher depending on your specific plan.</p>
 
 <p>The enrich endpoint charges credits even if the person is already in your CRM. The enrich endpoint also charges credits if you pass in the same information multiple times.</p>
 
@@ -1654,6 +1693,16 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <td>example@domani.com</td>
 </tr>
 <tr>
+<td>email_md5 (optional)</td>
+<td>The person&#39;s hashed email</td>
+<td>8d935115b9ff4489f2d1f9249503cadf</td>
+</tr>
+<tr>
+<td>email_sha256 (optional)</td>
+<td>The person&#39;s sha 256 hashed email</td>
+<td>97817c0c49994eb500ad0a5e7e2d8aed 51977b26424d508f66e4e8887746a152</td>
+</tr>
+<tr>
 <td>organization_name (optional)</td>
 <td>The person&#39;s company name</td>
 <td>Apollo Inc.</td>
@@ -1667,6 +1716,11 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <td>id (optional)</td>
 <td>The person&#39;s ID obtained from the search endpoint</td>
 <td>&quot;583f2f7ed9ced98ab5bfXXXX&quot;</td>
+</tr>
+<tr>
+<td>reveal_personal_emails (optional)</td>
+<td>Flag to reveal personal emails</td>
+<td>true</td>
 </tr>
 </tbody></table>
 <h2 id='organization-enrichment'>Organization Enrichment</h2>
