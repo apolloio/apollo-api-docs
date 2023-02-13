@@ -984,7 +984,21 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
    </span><span class="nl">"personal_emails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
        </span><span class="s2">"personalemail1@domain.com"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"personalemail2@domain.com"</span><span class="w">
-   </span><span class="p">]</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"departments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="s2">"c_suite"</span><span class="p">,</span><span class="w"> 
+       </span><span class="s2">"master_information_technology"</span><span class="p">,</span><span class="w"> 
+       </span><span class="s2">"master_operations"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"subdepartments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="s2">"operations_executive"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"business_service_management_itsm"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"operations"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"functions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="s2">"operations"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"seniority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c_suite"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint enriches people information in bulk - the more information you pass in, the more likely we can find a match. </p>
@@ -1653,7 +1667,21 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
         </span><span class="nl">"personal_emails"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"personalemail1@domain.com"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"personalemail2@domain.com"</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+       </span><span class="nl">"departments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+           </span><span class="s2">"c_suite"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"master_information_technology"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"master_operations"</span><span class="w">
+       </span><span class="p">],</span><span class="w">
+       </span><span class="nl">"subdepartments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+           </span><span class="s2">"operations_executive"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"business_service_management_itsm"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"operations"</span><span class="w">
+       </span><span class="p">],</span><span class="w">
+       </span><span class="nl">"functions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+           </span><span class="s2">"operations"</span><span class="w">
+       </span><span class="p">],</span><span class="w">
+       </span><span class="nl">"seniority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c_suite"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -2169,7 +2197,21 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
                 </span><span class="nl">"hubspot_record_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.hubspot.com/sales/25200013/company/699261XXXX"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"salesloft_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"233684XX"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"salesloft_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.salesloft.com/app/company/233684XX"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"departments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"c_suite"</span><span class="p">,</span><span class="w"> 
+                </span><span class="s2">"master_information_technology"</span><span class="p">,</span><span class="w"> 
+                </span><span class="s2">"master_operations"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"subdepartments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"operations_executive"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"business_service_management_itsm"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"operations"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"functions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"operations"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"seniority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c_suite"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
