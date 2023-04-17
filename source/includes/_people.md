@@ -247,6 +247,7 @@ print(response.text)
     ]
 }
 ```
+This endpoint searches for people, and does not return any email information. To get email information, use the "enrich" endpoint.
 
 `POST https://api.apollo.io/v1/mixed_people/search`
 
