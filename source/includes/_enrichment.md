@@ -801,7 +801,6 @@ This endpoint enriches organization information in bulk with info such as indust
 
 Up to 10 records can be enriched at the same time through this endpoint.
 
-Duplicate enrichments of the same record will not be charged credits. 
 
 ### Rate Limits
 
