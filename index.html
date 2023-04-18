@@ -1004,8 +1004,6 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <p>This endpoint enriches people information in bulk - the more information you pass in, the more likely we can find a match. </p>
 
 <p>Up to 10 records can be enriched at the same time through this endpoint. </p>
-<h3 id='credit-usage'>Credit Usage</h3>
-<p>The enrich endpoint charges you credits for its usage. If a verified email is successfully returned or the list of personal emails is revealed, it will cost you 1 credit. If an email is not found, but Apollo successfully found ALL of the following information: Name, Linkedin Profile, Current Company Information, Apollo will charge a fraction of a credit. Typically this is 0.01 credit per successful enrichment without email. But it may be higher depending on your specific plan.</p>
 
 <p>Duplicate enrichments of the same record will not be charged credits. </p>
 <h3 id='rate-limits'>Rate Limits</h3>
@@ -1417,9 +1415,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 </span></code></pre></div>
 <p>This endpoint enriches organization information in bulk with info such as industry, company size, etc. based on the domain parameter passed in.</p>
 
-<p>Up to 10 records can be enriched at the same time through this endpoint. </p>
-<h3 id='credit-usage-2'>Credit Usage</h3>
-<p>Duplicate enrichments of the same record will not be charged credits. </p>
+<p>Up to 10 records can be enriched at the same time through this endpoint.</p>
 <h3 id='rate-limits-2'>Rate Limits</h3>
 <p>Rate limits on this endpoint are 1/10th of what is available on the single enrichment endpoint. </p>
 
@@ -1685,11 +1681,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint enriches a person&#39;s information, the more information you pass in, the more likely we can find a match.  </p>
-
-<p>The enrich endpoint charges you credits for its usage. If a verified email is successfully returned or the list of personal emails is revealed, it will cost you 1 credit. If an email is not found, but Apollo successfully found ALL of the following information: Name, Linkedin Profile, Current Company Information, Apollo will charge a fraction of a credit. Typically this is 0.01 credit per successful enrichment without email. But it may be higher depending on your specific plan.</p>
-
-<p>The enrich endpoint charges credits even if the person is already in your CRM. The enrich endpoint also charges credits if you pass in the same information multiple times.</p>
+<p>This endpoint enriches a person&#39;s information, the more information you pass in, the more likely we can find a match.</p>
 
 <p><code>POST https://api.apollo.io/v1/people/match</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -2216,7 +2208,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint searches for people. Calls to the search endpoint do not cost you credits. They also do not return any email information. To get email information, use the &quot;enrich&quot; endpoint.</p>
+<p>This endpoint searches for people and do not return any email information. To get email information, use the &quot;enrich&quot; endpoint.</p>
 
 <p><code>POST https://api.apollo.io/v1/mixed_people/search</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
