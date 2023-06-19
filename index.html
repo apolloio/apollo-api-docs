@@ -4220,8 +4220,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "send_email_from_email_account_id": "email_account_id",
     "sequence_active_in_other_campaigns": false,
     "sequence_no_email": false,
-    "sequence_finished_in_other_campaigns": false,
-    "user_id": "5cc77dXXXXXXXXXXXXXXXXXX",
+    "sequence_finished_in_other_campaigns": false   
 }'</span> <span class="s2">"https://api.apollo.io/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
@@ -4449,11 +4448,6 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <td>async</td>
 <td>Whether process should be executed synchronously or asynchronously</td>
 <td>true or false (default false)</td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>User who is performing this action</td>
-<td>5cc77dXXXXXXXXXXXXXXXXXX</td>
 </tr>
 </tbody></table>
 <h2 id='remove-contacts-from-sequence-marking-contacts-as-finished-in-sequence'>Remove Contacts from Sequence / Marking Contacts as Finished in Sequence</h2>
