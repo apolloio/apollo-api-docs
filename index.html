@@ -1034,7 +1034,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <tr>
 <td>email (optional)</td>
 <td>The person&#39;s email</td>
-<td>example@domani.com</td>
+<td>example@domain.com</td>
 </tr>
 <tr>
 <td>email_md5 (optional)</td>
@@ -1065,6 +1065,16 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <td>reveal_personal_emails (optional)</td>
 <td>Flag to reveal personal emails</td>
 <td>true</td>
+</tr>
+<tr>
+<td>reveal_phone_number (optional)</td>
+<td>Flag to reveal phone number</td>
+<td>true</td>
+</tr>
+<tr>
+<td>webhook_url (optional)</td>
+<td>Webhook URL for sending &#39;reveal_phone_number&#39; response</td>
+<td>&quot;https://example.com/hook&quot;</td>
 </tr>
 </tbody></table>
 <h2 id='bulk-organization-enrichment'>Bulk Organization Enrichment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
@@ -1708,7 +1718,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <tr>
 <td>email (optional)</td>
 <td>The person&#39;s email</td>
-<td>example@domani.com</td>
+<td>example@domain.com</td>
 </tr>
 <tr>
 <td>email_md5 (optional)</td>
@@ -1739,6 +1749,16 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <td>reveal_personal_emails (optional)</td>
 <td>Flag to reveal personal emails</td>
 <td>true</td>
+</tr>
+<tr>
+<td>reveal_phone_number (optional)</td>
+<td>Flag to reveal phone number</td>
+<td>true</td>
+</tr>
+<tr>
+<td>webhook_url (optional)</td>
+<td>Webhook URL for sending &#39;reveal_phone_number&#39; response</td>
+<td>&quot;https://example.com/hook&quot;</td>
 </tr>
 </tbody></table>
 <h2 id='organization-enrichment'>Organization Enrichment</h2>
