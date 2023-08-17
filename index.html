@@ -601,16 +601,14 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
             "last_name": "Zheng",
             "domain": "apollo.io",
             "email": "tim@apollo.io",
-            "email_md5": "8d935115b9ff4489f2d1f9249503cadf",
-            "email_sha256": "337dc0c1aad74f93af086dcf7dc0289f141c8ef5f44c3f104f07b0f03050ff49",
+            "hashed_email": "8d935115b9ff4489f2d1f9249503cadf",
             "organization_name": "Apollo"
         },
         {
             "first_name": "Roy",
             "last_name": "Chung",
             "email": "roy@apollo.io",
-            "email_md5": "7328fddefd53de471baeb6e2b764f78a",
-            "email_sha256": "97817c0c49994eb500ad0a5e7e2d8aed51977b26424d508f66e4e8887746a152",
+            "hashed_email": "97817c0c49994eb500ad0a5e7e2d8aed51977b26424d508f66e4e8887746a152",
             "organization_name": "Apollo"
         }
     ]
@@ -627,8 +625,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
             <span class="s">"first_name"</span><span class="p">:</span> <span class="s">"Tim"</span><span class="p">,</span>
             <span class="s">"last_name"</span><span class="p">:</span> <span class="s">"Zheng"</span><span class="p">,</span>
             <span class="s">"domain"</span><span class="p">:</span> <span class="s">"apollo.io"</span><span class="p">,</span>
-            <span class="s">"email_md5"</span><span class="p">:</span> <span class="s">"8d935115b9ff4489f2d1f9249503cadf"</span><span class="p">,</span>
-            <span class="s">"email_sha256"</span><span class="p">:</span> <span class="s">"337dc0c1aad74f93af086dcf7dc0289f141c8ef5f44c3f104f07b0f03050ff49"</span><span class="p">,</span>
+            <span class="s">"hashed_email"</span><span class="p">:</span> <span class="s">"8d935115b9ff4489f2d1f9249503cadf"</span><span class="p">,</span>
             <span class="s">"email"</span><span class="p">:</span> <span class="s">"tim@apollo.io"</span><span class="p">,</span>
             <span class="s">"organization_name"</span><span class="p">:</span> <span class="s">"Apollo"</span>
         <span class="p">},</span>
@@ -636,8 +633,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
             <span class="s">"first_name"</span><span class="p">:</span> <span class="s">"Roy"</span><span class="p">,</span>
             <span class="s">"last_name"</span><span class="p">:</span> <span class="s">"Chung"</span><span class="p">,</span>
             <span class="s">"email"</span><span class="p">:</span> <span class="s">"roy@apollo.io"</span><span class="p">,</span>
-            <span class="s">"email_md5"</span><span class="p">:</span> <span class="s">"7328fddefd53de471baeb6e2b764f78a"</span><span class="p">,</span>
-            <span class="s">"email_sha256"</span><span class="p">:</span> <span class="s">"97817c0c49994eb500ad0a5e7e2d8aed51977b26424d508f66e4e8887746a152"</span><span class="p">,</span>
+            <span class="s">"hashed_email"</span><span class="p">:</span> <span class="s">"97817c0c49994eb500ad0a5e7e2d8aed51977b26424d508f66e4e8887746a152"</span><span class="p">,</span>
             <span class="s">"organization_name"</span><span class="p">:</span> <span class="s">"Apollo"</span>
         <span class="p">}</span>
     <span class="p">]</span>
@@ -1037,14 +1033,9 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <td>example@domain.com</td>
 </tr>
 <tr>
-<td>email_md5 (optional)</td>
-<td>The person&#39;s hashed email</td>
-<td>8d935115b9ff4489f2d1f9249503cadf</td>
-</tr>
-<tr>
-<td>email_sha256 (optional)</td>
-<td>The person&#39;s sha 256 hashed email</td>
-<td>97817c0c49994eb500ad0a5e7e2d8aed 51977b26424d508f66e4e8887746a152</td>
+<td>hashed_email (optional)</td>
+<td>The person&#39;s md5 or sha256 hashed email</td>
+<td>8d935115b9ff4489f2d1f9249503cadf OR 97817c0c49994eb500ad0a5e7e2d8aed 51977b26424d508f66e4e8887746a152</td>
 </tr>
 <tr>
 <td>organization_name (optional)</td>
@@ -1453,8 +1444,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
     "last_name": "Zheng",
     "organization_name": "Apollo",
     "email": "name@domain.io",
-    "email_md5": "8d935115b9ff4489f2d1f9249503cadf",
-    "email_sha256": "337dc0c1aad74f93af086dcf7dc0289f141c8ef5f44c3f104f07b0f03050ff49",
+    "hashed_email": "8d935115b9ff4489f2d1f9249503cadf",
     "domain": "apollo.io",
     "reveal_personal_emails": true
 }'</span> <span class="s2">"https://api.apollo.io/v1/people/match"</span>
@@ -1469,8 +1459,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
     <span class="s">"last_name"</span><span class="p">:</span> <span class="s">"Zheng"</span><span class="p">,</span>
     <span class="s">"organization_name"</span><span class="p">:</span> <span class="s">"Apollo"</span><span class="p">,</span>
     <span class="s">"email"</span><span class="p">:</span> <span class="s">"name@domain.io"</span><span class="p">,</span>
-    <span class="s">"email_md5"</span><span class="p">:</span> <span class="s">"8d935115b9ff4489f2d1f9249503cadf"</span><span class="p">,</span>
-    <span class="s">"email_sha256"</span><span class="p">:</span> <span class="s">"337dc0c1aad74f93af086dcf7dc0289f141c8ef5f44c3f104f07b0f03050ff49"</span><span class="p">,</span>
+    <span class="s">"hashed_email"</span><span class="p">:</span> <span class="s">"8d935115b9ff4489f2d1f9249503cadf"</span><span class="p">,</span>
     <span class="s">"domain"</span><span class="p">:</span> <span class="s">"apollo.io"</span><span class="p">,</span>
     <span class="s">"reveal_personal_emails"</span><span class="p">:</span> <span class="n">true</span>
 <span class="p">}</span>
@@ -1721,14 +1710,9 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <td>example@domain.com</td>
 </tr>
 <tr>
-<td>email_md5 (optional)</td>
-<td>The person&#39;s hashed email</td>
-<td>8d935115b9ff4489f2d1f9249503cadf</td>
-</tr>
-<tr>
-<td>email_sha256 (optional)</td>
-<td>The person&#39;s sha 256 hashed email</td>
-<td>97817c0c49994eb500ad0a5e7e2d8aed 51977b26424d508f66e4e8887746a152</td>
+<td>hashed_email (optional)</td>
+<td>The person&#39;s md5 or sha256 hashed email</td>
+<td>8d935115b9ff4489f2d1f9249503cadf OR 97817c0c49994eb500ad0a5e7e2d8aed 51977b26424d508f66e4e8887746a152</td>
 </tr>
 <tr>
 <td>organization_name (optional)</td>
