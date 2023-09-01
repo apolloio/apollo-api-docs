@@ -74,12 +74,12 @@ print(response.text)
 
 | Parameter            | Description                                                                                                                                 |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| owner_id             | Owner ID . You can GET a list of possible users and their associated information from [Misc/Users](#get-a-list-of-users)                    |
-| name                 | Opportunity Name                                                                                                                            |
-| amount               | The Amount of money involved in the Opportunity/ Deal                                                                                       |
-| opportunity_stage_id | The ID of the current Stage .You can get a list of all opportunity stages from [Misc/Opportunity Stages](#get-a-list-of-opportunity-stages) |
-| closed_date          | The date the Opportunity was closed                                                                                                         |
-| account_id           | ID of the Account                                                                                                                           |
+| owner_id             | Owner ID . You can GET a list of possible users and their associated information from [misc/users](#get-a-list-of-users)                    |
+| name                 | Opportunity name                                                                                                                            |
+| amount               | The amount of money involved in the opportunity/ deal                                                                                       |
+| opportunity_stage_id | The ID of the current stage .You can get a list of all opportunity stages from [misc/opportunity stages](#get-a-list-of-opportunity-stages) |
+| closed_date          | The date the opportunity was closed                                                                                                         |
+| account_id           | ID of the account                                                                                                                           |
 
 ## Get all opportunities
 
@@ -228,7 +228,7 @@ print(response.text)
     ]
 ```
 
-This endpoint returns all opportunities you have Created.
+This endpoint returns all opportunities you have created.
 
 `GET https://api.apollo.io/v1/opportunities`
 
@@ -291,7 +291,7 @@ print(response.text)
 This endpoint returns the full information about an opportunity.
 &nbsp;
 
-You can GET a list of all created Opportunities from [Opportunities/all](#get-all-opportunities)
+You can GET a list of all created opportunities from [opportunities/all](#get-all-opportunities)
 
 `GET https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID`
 
@@ -362,6 +362,6 @@ Only supplied fields will be updated. All other fields will be left untouched.
 </aside>
 &nbsp;
 
-You can GET a list of all created Opportunities from [Opportunities/all](#get-all-opportunities)
+You can GET a list of all created opportunities from [opportunities/all](#get-all-opportunities)
 
 `PATCH https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID`

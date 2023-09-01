@@ -1,6 +1,6 @@
 # Contacts API
 
-A Contact is a person your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.
+A contact is a person your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.
 
 ## Create a contact
 
@@ -118,8 +118,8 @@ Apollo does not run any deduplication during <code>CREATE</code>. If your record
 Parameter | Description | Example
 --------- | ----------- | -----------
 first_name| First name | "Jon"
-last_name | Last Name   | "Snow"
-organization_name | Company Name   | "Westeros Inc."
+last_name | Last name   | "Snow"
+organization_name | Company name   | "Westeros Inc."
 title | Title   | "Lord Commander"
 account_id     | ID of the Account (Optional) | "583f2f7ed9ced98ab5bfXXXX"
 email     | Email. Invalid emails will be ignored.  | "jon.snow@westeros.com"
@@ -251,8 +251,8 @@ Parameter | Description | Example
 --------- | ----------- | -----------
 id (Required)        | Contact ID  | "583f2f7ed9ced98ab5bfXXXX"
 first_name| First name | "Jon"
-last_name | Last Name   | "Snow"
-organization_name | Company Name   | "Westeros Inc."
+last_name | Last name   | "Snow"
+organization_name | Company name   | "Westeros Inc."
 title | Title   | "Lord Commander"
 account_id     | ID of the Account (Optional)  | "583f2f7ed9ced98ab5bfXXXX"
 email     | Email   | "jon.snow@westeros.com"
@@ -458,7 +458,7 @@ q_keywords | The contact's name, title, company, or email
 contact_stage_ids | An array of stage ids the contact must belong to. Refer to /contact_stages to get a list of possible stage ids.
 sort_by_field | Possible values: "contact_last_activity_date", "contact_email_last_opened_at", "contact_email_last_clicked_at", "contact_created_at", or "contact_updated_at"
 sort_ascending | Possible values: true or false
-page | which page to return. Defaults to 1
+page | Which page to return. Defaults to 1
 
 ## Get a list of contact stages
 

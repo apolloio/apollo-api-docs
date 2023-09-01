@@ -1,6 +1,6 @@
 # Organizations API
 
-An Organization represents a company in Apollo's database.
+An organization represents a company in Apollo's database.
 
 ## Organization jobs postings
 

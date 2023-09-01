@@ -1,6 +1,6 @@
 # Sequences API
 
-Use the Sequences API to interact with sequences, add contacts to sequence, and more!
+Use the sequences API to interact with sequences, add contacts to sequence, and more!
 
 ## Search for sequences
 

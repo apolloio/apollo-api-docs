@@ -1,6 +1,6 @@
 # Accounts API
 
-An Account is a company your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.
+An account is a company your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.
 
 ## Create an account
 

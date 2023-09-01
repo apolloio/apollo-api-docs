@@ -1,6 +1,6 @@
 # Tasks API
 
-A task is an action to be performed on a contact, The Task can be assigned to any member of your team and also given the appropriate priority
+A task is an action to be performed on a contact, The task can be assigned to any member of your team and also given the appropriate priority
 
 ## Creating a task
 
@@ -63,7 +63,7 @@ print(response.text)
 | Parameter              | Description                                                                                                                     | Example                                                  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
 | priority (required)    | Priority of the task                                                                                                            | "high"/"medium"/"low"                                    |
-| user_id                | The ID of the user the task is to be assigned to . You can GET a list of possible users from [Misc/Users](#get-a-list-of-users) | "583f2f7ed9ced98ab5bfXXXX"                               |
+| user_id                | The ID of the user the task is to be assigned to . You can GET a list of possible users from [misc/users](#get-a-list-of-users) | "583f2f7ed9ced98ab5bfXXXX"                               |
 | due_at                 | the due date and time for the task                                                                                              | 2020-12-21T16:16:48.311Z                                 |
 | type                   | The type of the task there are 3 valid task types `call`, `outreach_manual_email` ,`action_item`                                | call, outreach_manual_email ,action_item                 |
 | contact_ids (required) | An array of contact Ids                                                                                                         | ["583f2f7ed9ced98ab5bfXXXX", "583f2f7ed9ced98ab5bfXXXX"] |
