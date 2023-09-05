@@ -1,8 +1,8 @@
 # Organizations API
 
-An Organization represents a company in Apollo's database.
+An organization represents a company in Apollo's database.
 
-## Organization Jobs Postings
+## Organization jobs postings
 
 > Sample request:
 
@@ -72,7 +72,7 @@ Get a list of active job postings for a company.
 
 `GET https://api.apollo.io/v1/organizations/ORGANIZATION_ID/job_postings`
 
-### Query Parameters
+### Query parameters
 
 | Parameter | Description                                                                                                                 | Example                  |
 | --------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------ |

@@ -1,8 +1,8 @@
 # Contacts API
 
-A Contact is a person your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.
+A contact is a person your team has explicitly added to your database. It can be from prospected from Apollo, manually added by your team, or created by the API.
 
-## Create a Contact
+## Create a contact
 
 > Sample request:
 
@@ -118,8 +118,8 @@ Apollo does not run any deduplication during <code>CREATE</code>. If your record
 Parameter | Description | Example
 --------- | ----------- | -----------
 first_name| First name | "Jon"
-last_name | Last Name   | "Snow"
-organization_name | Company Name   | "Westeros Inc."
+last_name | Last name   | "Snow"
+organization_name | Company name   | "Westeros Inc."
 title | Title   | "Lord Commander"
 account_id     | ID of the Account (Optional) | "583f2f7ed9ced98ab5bfXXXX"
 email     | Email. Invalid emails will be ignored.  | "jon.snow@westeros.com"
@@ -129,7 +129,7 @@ contact_stage_id | Assign contact to this stage, if the contact does not yet exi
 present_raw_address | The address string for this contact, Apollo will intelligently infer the city, state, country, and time zone from your address | "San Francisco"
 
 
-## Update a Contact
+## Update a contact
 
 > Sample request:
 
@@ -251,8 +251,8 @@ Parameter | Description | Example
 --------- | ----------- | -----------
 id (Required)        | Contact ID  | "583f2f7ed9ced98ab5bfXXXX"
 first_name| First name | "Jon"
-last_name | Last Name   | "Snow"
-organization_name | Company Name   | "Westeros Inc."
+last_name | Last name   | "Snow"
+organization_name | Company name   | "Westeros Inc."
 title | Title   | "Lord Commander"
 account_id     | ID of the Account (Optional)  | "583f2f7ed9ced98ab5bfXXXX"
 email     | Email   | "jon.snow@westeros.com"
@@ -265,7 +265,7 @@ home_phone | The home phone for this contact. If the contact already has a home 
 other_phone | Phone of unknown type for this contact. If the contact already has phone of unknown type, this overwrites it. If a contact does not already have phone of unknown type, this ADDS a new phone on top of existing phone numbers | "123-456-7890"
 
 
-## Search for Contacts
+## Search for contacts
 
 > Sample request:
 
@@ -458,9 +458,9 @@ q_keywords | The contact's name, title, company, or email
 contact_stage_ids | An array of stage ids the contact must belong to. Refer to /contact_stages to get a list of possible stage ids.
 sort_by_field | Possible values: "contact_last_activity_date", "contact_email_last_opened_at", "contact_email_last_clicked_at", "contact_created_at", or "contact_updated_at"
 sort_ascending | Possible values: true or false
-page | which page to return. Defaults to 1
+page | Which page to return. Defaults to 1
 
-## Get a List of Contact Stages
+## Get a list of contact stages
 
 > Sample request:
 
@@ -580,7 +580,7 @@ print(response.text)
 `GET https://api.apollo.io/v1/contact_stages`
 
 
-## Update Contact Stage
+## Update contact stage
 
 > Sample request:
 
@@ -677,7 +677,7 @@ print(response.text)
 
 `POST https://api.apollo.io/v1/contacts/update_stages`
 
-### Query Parameters
+### Query parameters
 
 Parameter | Description
 --------- | -----------
@@ -686,7 +686,7 @@ contact_stage_id | The contact stage id to change into. You can GET a list of po
 
 
 
-## Update Contact Ownership
+## Update contact ownership
 
 > Sample request:
 
@@ -783,7 +783,7 @@ print(response.text)
 
 `POST https://api.apollo.io/v1/contacts/update_owners`
 
-### Query Parameters
+### Query parameters
 
 Parameter | Description
 --------- | -----------

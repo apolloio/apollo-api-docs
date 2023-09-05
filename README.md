@@ -1,7 +1,17 @@
 ### Deploy changes to the api doc site:
-* ```bundle install```
-* ```bundle exec middleman server```
-* ```./deploy.sh```
+
+1. ```bundle install```:
+   - Use this command to install the required Ruby gems (dependencies) for your project.
+   - It ensures that all the necessary gems specified in your project's Gemfile are installed.
+
+2. ```bundle exec middleman server```:
+   - Run this command to start the Middleman static site generator in your project.
+   - It launches a local development server, allowing you to preview and interact with your website or web application during development.
+   - For any
+
+3. ```./deploy.sh```:
+   - Execute this command to run a shell script named `deploy.sh` which is responsible for deploying your project to a web server or hosting platform.
+   - Once your pull request (PR) is approved, merge it into the master branch and run the following command in the master branch
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/slatedocs/img/main/logo-slate.png" alt="Slate: API Documentation Generator" width="226">
