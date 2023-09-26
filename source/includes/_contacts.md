@@ -127,6 +127,7 @@ website_url | The organization website Apollo can use to enrich data for you. DO
 label_names | A list of names to tag this newly created contact. If the name does not exist, Apollo will automatically create it | ["inbound contact", "smb clients"]
 contact_stage_id | Assign contact to this stage, if the contact does not yet exist. Get a list of possible stage ids with GET /contact_stages | "583f2f7ed9ced98ab5bfXXXX"
 present_raw_address | The address string for this contact, Apollo will intelligently infer the city, state, country, and time zone from your address | "San Francisco"
+phone_numbers | A list of phone-numbers for the contact. Needs raw_number and type in ('work_direct', 'work_hq', 'mobile', 'home', 'other') | [{"raw_number": "+1234567890" "type": 'work_direct'}] 
 
 
 ## Update a contact
