@@ -435,6 +435,7 @@ hashed_email (optional) | The person's md5 or sha256 hashed email | 8d935115b9ff
 organization_name (optional) | The person's company name | Apollo Inc.
 domain (optional) | The person's company domain | apollo.io
 id (optional) |  The person's ID obtained from the search endpoint | "583f2f7ed9ced98ab5bfXXXX"
+linkedin_url (optional) | The person's linkedin URL | http://www.linkedin.com/in/tim-zheng
 reveal_personal_emails (optional) | Flag to reveal personal emails | true
 reveal_phone_number (optional) | Flag to reveal phone number | true
 webhook_url (optional) | Webhook URL for sending 'reveal_phone_number' response | "https://example.com/hook"
@@ -1077,6 +1078,7 @@ hashed_email (optional) | The person's md5 or sha256 hashed email | 8d935115b9ff
 organization_name (optional) | The person's company name | Apollo Inc.
 domain (optional) | The person's company domain | apollo.io
 id (optional) |  The person's ID obtained from the search endpoint | "583f2f7ed9ced98ab5bfXXXX"
+linkedin_url (optional) | The person's linkedin URL | http://www.linkedin.com/in/tim-zheng
 reveal_personal_emails (optional) | Flag to reveal personal emails | true
 reveal_phone_number (optional) | Flag to reveal phone number | true
 webhook_url (optional) | Webhook URL for sending 'reveal_phone_number' response | "https://example.com/hook"
