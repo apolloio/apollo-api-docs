@@ -127,6 +127,12 @@ website_url | The organization website Apollo can use to enrich data for you. DO
 label_names | A list of names to tag this newly created contact. If the name does not exist, Apollo will automatically create it | ["inbound contact", "smb clients"]
 contact_stage_id | Assign contact to this stage, if the contact does not yet exist. Get a list of possible stage ids with GET /contact_stages | "583f2f7ed9ced98ab5bfXXXX"
 present_raw_address | The address string for this contact, Apollo will intelligently infer the city, state, country, and time zone from your address | "San Francisco"
+direct_phone | The direct dial phone for this contact. | "123-456-7890"
+corporate_phone | The corporate phone for this contact.| "123-456-7890"
+mobile_phone | The mobile phone for this contact. | "123-456-7890"
+home_phone | The home phone for this contact. | "123-456-7890"
+other_phone | Phone of unknown type for this contact. | "123-456-7890"
+
 
 
 ## Update a contact
