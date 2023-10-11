@@ -13,14 +13,16 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
             "domain": "apollo.io",
             "email": "tim@apollo.io",
             "hashed_email": "8d935115b9ff4489f2d1f9249503cadf",
-            "organization_name": "Apollo"
+            "organization_name": "Apollo",
+            "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010"
         },
         {
             "first_name": "Roy",
             "last_name": "Chung",
             "email": "roy@apollo.io",
             "hashed_email": "97817c0c49994eb500ad0a5e7e2d8aed51977b26424d508f66e4e8887746a152",
-            "organization_name": "Apollo"
+            "organization_name": "Apollo",
+            "linkedin_url": "http://www.linkedin.com/in/royychung"
         }
     ]
 }' "https://api.apollo.io/api/v1/people/bulk_match"
@@ -42,6 +44,7 @@ data = {
             "hashed_email": "8d935115b9ff4489f2d1f9249503cadf",
             "email": "tim@apollo.io",
             "organization_name": "Apollo"
+            "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010"
         },
         {
             "first_name": "Roy",
@@ -49,6 +52,7 @@ data = {
             "email": "roy@apollo.io",
             "hashed_email": "97817c0c49994eb500ad0a5e7e2d8aed51977b26424d508f66e4e8887746a152",
             "organization_name": "Apollo"
+            "linkedin_url": "http://www.linkedin.com/in/royychung"
         }
     ]
 }
@@ -67,349 +71,444 @@ print(response.text)
 
 ```json
 {
-   "status":"success",
-   "error_code":null,
-   "error_message":null,
-   "total_requested_enrichments":2,
-   "unique_enriched_records":2,
-   "missing_records":0,
-   "credits_consumed":0.02,
-   "matches":[
-      {
-         "revealed_for_current_team":true,
-         "email":"email_not_unlocked@domain.com",
-         "email_status":"verified",
-         "id":"61c2e2d4bbb92a0001509cce",
-         "first_name":"Tim",
-         "last_name":"Zheng",
-         "name":"Tim Zheng",
-         "linkedin_url":"http://www.linkedin.com/in/tim-zheng-677ba010",
-         "title":"Founder \u0026 CEO",
-         "photo_url":"https://media-exp1.licdn.com/dms/image/C5603AQGiphGg4YXw4Q/profile-displayphoto-shrink_400_400/0/1527618224366?e=1652918400\u0026v=beta\u0026t=ApFqfgq3DodDHyS3m-1bYH9xQfztL_yqUItyo_7sGEQ",
-         "twitter_url":null,
-         "github_url":null,
-         "facebook_url":null,
-         "extrapolated_email_confidence":null,
-         "headline":"Founder \u0026 CEO at Apollo",
-         "organization_id":"5e66b6381e05b4008c8331b8",
-         "state":"Texas",
-         "city":"Austin",
-         "country":"United States",
-         "organization":{
-            "id":"5e66b6381e05b4008c8331b8",
-            "name":"Apollo.io",
-            "website_url":"http://www.apollo.io",
-            "blog_url":null,
-            "angellist_url":null,
-            "linkedin_url":"http://www.linkedin.com/company/apolloio",
-            "twitter_url":"https://twitter.com/MeetApollo/",
-            "facebook_url":"https://www.facebook.com/MeetApollo/",
-            "primary_phone":{
-               "number":"+1 415-763-6055",
-               "source":"Owler"
-            },
-            "languages":[
-               
+    "status": "success",
+    "error_code": null,
+    "error_message": null,
+    "total_requested_enrichments": 2,
+    "unique_enriched_records": 2,
+    "missing_records": 0,
+    "credits_consumed": 1.01,
+    "matches": [
+        {
+            "id": "6453e9bd8f50d40001f1e348",
+            "first_name": "Tim",
+            "last_name": "Zheng",
+            "name": "Tim Zheng",
+            "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010",
+            "title": "Founder & CEO",
+            "email_status": null,
+            "photo_url": "https://media.licdn.com/dms/image/D5603AQEFiVRxq2aFCg/profile-displayphoto-shrink_200_200/0/1676521918175?e=1701907200&v=beta&t=6QqL_xwsDybj-FIUTr6XaEeLyrHxs7QS-IHSbVtYCak",
+            "twitter_url": null,
+            "github_url": null,
+            "facebook_url": null,
+            "extrapolated_email_confidence": null,
+            "headline": "Founder & CEO at Apollo",
+            "email": "tim@apollo.io",
+            "organization_id": "5e66b6381e05b4008c8331b8",
+            "employment_history": [
+                {
+                    "_id": "651e57392998d400013ac5bd",
+                    "created_at": null,
+                    "current": true,
+                    "degree": null,
+                    "description": null,
+                    "emails": null,
+                    "end_date": null,
+                    "grade_level": null,
+                    "kind": null,
+                    "major": null,
+                    "organization_id": "5e66b6381e05b4008c8331b8",
+                    "organization_name": "Apollo",
+                    "raw_address": null,
+                    "start_date": "2016-01-01",
+                    "title": "Founder & CEO",
+                    "updated_at": null,
+                    "id": "651e57392998d400013ac5bd",
+                    "key": "651e57392998d400013ac5bd"
+                },
+                {
+                    "_id": "651e57392998d400013ac5be",
+                    "created_at": null,
+                    "current": false,
+                    "degree": null,
+                    "description": null,
+                    "emails": null,
+                    "end_date": "2015-01-01",
+                    "grade_level": null,
+                    "kind": null,
+                    "major": null,
+                    "organization_id": null,
+                    "organization_name": "Braingenie",
+                    "raw_address": null,
+                    "start_date": "2011-01-01",
+                    "title": "Founder & CEO",
+                    "updated_at": null,
+                    "id": "651e57392998d400013ac5be",
+                    "key": "651e57392998d400013ac5be"
+                },
+                {
+                    "_id": "651e57392998d400013ac5bf",
+                    "created_at": null,
+                    "current": false,
+                    "degree": null,
+                    "description": null,
+                    "emails": null,
+                    "end_date": "2011-01-01",
+                    "grade_level": null,
+                    "kind": null,
+                    "major": null,
+                    "organization_id": "54a22f23746869331840e813",
+                    "organization_name": "Citadel Investment Group",
+                    "raw_address": null,
+                    "start_date": "2011-01-01",
+                    "title": "Investment & Trading Associate",
+                    "updated_at": null,
+                    "id": "651e57392998d400013ac5bf",
+                    "key": "651e57392998d400013ac5bf"
+                },
+                {
+                    "_id": "651e57392998d400013ac5c0",
+                    "created_at": null,
+                    "current": false,
+                    "degree": null,
+                    "description": null,
+                    "emails": null,
+                    "end_date": "2010-09-01",
+                    "grade_level": null,
+                    "kind": null,
+                    "major": null,
+                    "organization_id": "54a1216169702d7fe6dfca02",
+                    "organization_name": "The Boston Consulting Group",
+                    "raw_address": null,
+                    "start_date": "2010-08-01",
+                    "title": "Summer Associate",
+                    "updated_at": null,
+                    "id": "651e57392998d400013ac5c0",
+                    "key": "651e57392998d400013ac5c0"
+                },
+                {
+                    "_id": "651e57392998d400013ac5c1",
+                    "created_at": null,
+                    "current": false,
+                    "degree": null,
+                    "description": null,
+                    "emails": null,
+                    "end_date": "2010-08-01",
+                    "grade_level": null,
+                    "kind": null,
+                    "major": null,
+                    "organization_id": "64cca0e9f6489200019570a1",
+                    "organization_name": "Goldman Sachs",
+                    "raw_address": null,
+                    "start_date": "2010-06-01",
+                    "title": "Summer Analyst",
+                    "updated_at": null,
+                    "id": "651e57392998d400013ac5c1",
+                    "key": "651e57392998d400013ac5c1"
+                },
+                {
+                    "_id": "651e57392998d400013ac5c2",
+                    "created_at": null,
+                    "current": false,
+                    "degree": null,
+                    "description": null,
+                    "emails": null,
+                    "end_date": "2010-02-01",
+                    "grade_level": null,
+                    "kind": null,
+                    "major": null,
+                    "organization_id": "54a1a06274686945fa1ffc02",
+                    "organization_name": "Jane Street",
+                    "raw_address": null,
+                    "start_date": "2009-12-01",
+                    "title": "Trading Intern",
+                    "updated_at": null,
+                    "id": "651e57392998d400013ac5c2",
+                    "key": "651e57392998d400013ac5c2"
+                }
             ],
-            "alexa_ranking":2651,
-            "phone":"+1 415-763-6055",
-            "linkedin_uid":"18511550",
-            "founded_year":2015,
-            "publicly_traded_symbol":null,
-            "publicly_traded_exchange":null,
-            "logo_url":"https://zenprospect-production.s3.amazonaws.com/uploads/pictures/62299e01b86a98000152b0c5/picture",
-            "crunchbase_url":null,
-            "primary_domain":"apollo.io",
-            "persona_counts":{
-               
+            "state": "California",
+            "city": "San Francisco",
+            "country": "United States",
+            "organization": {
+                "id": "5e66b6381e05b4008c8331b8",
+                "name": "Apollo.io",
+                "website_url": "http://www.apollo.io",
+                "blog_url": null,
+                "angellist_url": null,
+                "linkedin_url": "http://www.linkedin.com/company/apolloio",
+                "twitter_url": "https://twitter.com/meetapollo/",
+                "facebook_url": "https://www.facebook.com/MeetApollo",
+                "primary_phone": {
+                    "number": "+1415-640-9303",
+                    "source": "Owler",
+                    "country_code_added_from_hq": true
+                },
+                "languages": [],
+                "alexa_ranking": 3514,
+                "phone": "+1415-640-9303",
+                "linkedin_uid": "18511550",
+                "founded_year": 2015,
+                "publicly_traded_symbol": null,
+                "publicly_traded_exchange": null,
+                "logo_url": "https://zenprospect-production.s3.amazonaws.com/uploads/pictures/64beb2c5e966df0001384ac1/picture",
+                "crunchbase_url": null,
+                "primary_domain": "apollo.io",
+                "sanitized_phone": "+14156409303",
+                "industry": "information technology & services",
+                "keywords": [
+                    "sales engagement",
+                    "lead generation",
+                    "predictive analytics",
+                    "lead scoring",
+                    "sales strategy",
+                    "conversation intelligence",
+                    "sales enablement",
+                    "lead routing",
+                    "sales development",
+                    "email engagement",
+                    "revenue intelligence",
+                    "sales operations",
+                    "demand generation"
+                ],
+                "estimated_num_employees": 1200,
+                "industries": [
+                    "information technology & services"
+                ],
+                "secondary_industries": [],
+                "snippets_loaded": true,
+                "industry_tag_id": "5567cd4773696439b10b0000",
+                "industry_tag_hash": {
+                    "information technology & services": "5567cd4773696439b10b0000"
+                },
+                "retail_location_count": 0,
+                "raw_address": "535 mission street, san francisco, california, united states",
+                "street_address": "535 Mission Street",
+                "city": "San Francisco",
+                "state": "California",
+                "postal_code": "94105",
+                "country": "United States"
             },
-            "industry":"computer software",
-            "keywords":[
-               "sales engagement",
-               "lead generation",
-               "predictive analytics",
-               "lead scoring",
-               "sales strategy",
-               "conversation intelligence",
-               "sales enablement",
-               "lead routing",
-               "sales development",
-               "email engagement",
-               "revenue intelligence",
-               "sales operations",
-               "demand generation"
-            ],
-            "estimated_num_employees":200,
-            "snippets_loaded":true,
-            "industry_tag_id":"5567cd4e7369643b70010000",
-            "retail_location_count":0,
-            "raw_address":"535 Mission St, Suite 1100, San Francisco, California 94105, US",
-            "street_address":"535 Mission St",
-            "city":"San Francisco",
-            "state":"California",
-            "postal_code":"94105",
-            "country":"United States"
-         },
-         "account_id":"6182b6670e22be00ded90b0f",
-         "account":{
-            "id":"6182b6670e22be00ded90b0f",
-            "name":"Apollo.io",
-            "website_url":"http://www.apollo.io",
-            "blog_url":null,
-            "angellist_url":null,
-            "linkedin_url":"http://www.linkedin.com/company/apolloio",
-            "twitter_url":"https://twitter.com/MeetApollo/",
-            "facebook_url":"https://www.facebook.com/MeetApollo/",
-            "primary_phone":{
-               "number":"+1 415-763-6055",
-               "source":"Owler"
+            "account_id": "64dcd04136650700bc538f61",
+            "account": {
+                "id": "64dcd04136650700bc538f61",
+                "name": "Apollo",
+                "website_url": "http://www.apollo.io",
+                "blog_url": null,
+                "angellist_url": null,
+                "linkedin_url": "http://www.linkedin.com/company/apolloio",
+                "twitter_url": "https://twitter.com/meetapollo/",
+                "facebook_url": "https://www.facebook.com/MeetApollo",
+                "primary_phone": {
+                    "number": "+1415-640-9303",
+                    "source": "Owler",
+                    "country_code_added_from_hq": true
+                },
+                "languages": [],
+                "alexa_ranking": 3514,
+                "phone": "+1(202) 374-1312",
+                "linkedin_uid": "18511550",
+                "founded_year": 2015,
+                ...
             },
-            "languages":[
-               
+            "phone_numbers": [
+                {
+                    "raw_number": "+1415-640-9303",
+                    "sanitized_number": "+14156409303",
+                    "type": "work_hq",
+                    "position": 0,
+                    "status": "no_status",
+                    "dnc_status": null,
+                    "dnc_other_info": null
+                }
             ],
-            "alexa_ranking":2651,
-            "phone":"2023741312",
-            "linkedin_uid":"18511550",
-            "founded_year":2015,
-            "publicly_traded_symbol":null,
-            "publicly_traded_exchange":null,
-            "logo_url":"https://zenprospect-production.s3.amazonaws.com/uploads/pictures/62299e01b86a98000152b0c5/picture",
-            "crunchbase_url":null,
-            "primary_domain":"apollo.io",
-            "persona_counts":{
-               
+            "intent_strength": null,
+            "show_intent": false,
+            "revealed_for_current_team": true,
+            "hashed_email": "8d935115b9ff4489f2d1f9249503cadf",
+            "personal_emails": [],
+            "departments": [
+                "c_suite"
+            ],
+            "subdepartments": [
+                "executive",
+                "founder"
+            ],
+            "functions": [
+                "entrepreneurship"
+            ],
+            "seniority": "founder"
+        },
+        {
+            "id": "611c931f1b404b00014e884c",
+            "first_name": "Roy",
+            "last_name": "Chung",
+            "name": "Roy Chung",
+            "linkedin_url": "http://www.linkedin.com/in/royychung",
+            "title": "Entrepreneur",
+            "email_status": null,
+            "photo_url": "https://media.licdn.com/dms/image/C5603AQFVolaIjLeG3g/profile-displayphoto-shrink_800_800/0/1517707907539?e=1701302400&v=beta&t=JFd1eHlKnvAfz77El2lIOAmRFZpmvz6uiRzpP1hqs70",
+            "twitter_url": "https://twitter.com/r1strategy",
+            "github_url": null,
+            "facebook_url": null,
+            "extrapolated_email_confidence": null,
+            "headline": "Ideating & Optimizing 💪📈🧪️",
+            "email": "roy@apollo.io",
+            "organization_id": "627b71bc1c295500a55e4928",
+            "employment_history": [
+                {
+                    "_id": "651534cefdb6690001d16b63",
+                    "created_at": null,
+                    "current": true,
+                    "degree": null,
+                    "description": null,
+                    "emails": null,
+                    "end_date": null,
+                    "grade_level": null,
+                    "kind": null,
+                    "major": null,
+                    "organization_id": "627b71bc1c295500a55e4928",
+                    "organization_name": "Stealth",
+                    "raw_address": null,
+                    "start_date": "2022-07-01",
+                    "title": "Entrepreneur",
+                    "updated_at": null,
+                    "id": "651534cefdb6690001d16b63",
+                    "key": "651534cefdb6690001d16b63"
+                },
+                {
+                    "_id": "651534cefdb6690001d16b64",
+                    "created_at": null,
+                    "current": true,
+                    "degree": null,
+                    "description": null,
+                    "emails": null,
+                    "end_date": null,
+                    "grade_level": null,
+                    "kind": null,
+                    "major": null,
+                    "organization_id": "5dba6791a2edd900e79a4b48",
+                    "organization_name": "Flow Research Collective",
+                    "raw_address": null,
+                    "start_date": "2019-11-01",
+                    "title": "Strategy",
+                    "updated_at": null,
+                    "id": "651534cefdb6690001d16b64",
+                    "key": "651534cefdb6690001d16b64"
+                },
+                {
+                    "_id": "651534cefdb6690001d16b65",
+                    "created_at": null,
+                    "current": true,
+                    "degree": null,
+                    "description": null,
+                    "emails": null,
+                    "end_date": null,
+                    "grade_level": null,
+                    "kind": null,
+                    "major": null,
+                    "organization_id": "5b1314cda6da98dcb8928c42",
+                    "organization_name": "Pioneer Fund",
+                    "raw_address": null,
+                    "start_date": "2021-01-01",
+                    "title": "Venture Partner",
+                    "updated_at": null,
+                    "id": "651534cefdb6690001d16b65",
+                    "key": "651534cefdb6690001d16b65"
+                },
+                {
+                    "_id": "651534cefdb6690001d16b66",
+                    "created_at": null,
+                    "current": true,
+                    "degree": null,
+                    "description": null,
+                    "emails": null,
+                    "end_date": null,
+                    "grade_level": null,
+                    "kind": null,
+                    "major": null,
+                    "organization_id": "60c554c05c097d00d9155e20",
+                    "organization_name": "JoyFund",
+                    "raw_address": null,
+                    "start_date": "2019-05-01",
+                    "title": "Venture Partner",
+                    "updated_at": null,
+                    "id": "651534cefdb6690001d16b66",
+                    "key": "651534cefdb6690001d16b66"
+                },
+                {
+                    "_id": "651534cefdb6690001d16b67",
+                    "created_at": null,
+                    "current": true,
+                    "degree": null,
+                    "description": null,
+                    "emails": null,
+                    "end_date": null,
+                    "grade_level": null,
+                    "kind": null,
+                    "major": null,
+                    "organization_id": "5e562f92440ea5000178a0b1",
+                    "organization_name": "Lionheart Ventures",
+                    "raw_address": null,
+                    "start_date": "2020-01-01",
+                    "title": "Venture Partner",
+                    "updated_at": null,
+                    "id": "651534cefdb6690001d16b67",
+                    "key": "651534cefdb6690001d16b67"
+                }
+            ],
+            "state": "New York",
+            "city": "New York",
+            "country": "United States",
+            "organization": {
+                "id": "627b71bc1c295500a55e4928",
+                "name": "Stealth",
+                "website_url": null,
+                "blog_url": null,
+                "angellist_url": null,
+                "linkedin_url": "http://www.linkedin.com/company/ice9",
+                "twitter_url": null,
+                "facebook_url": null,
+                "primary_phone": {},
+                "languages": [],
+                "alexa_ranking": null,
+                "phone": null,
+                "linkedin_uid": "80022788",
+                "founded_year": null,
+                "publicly_traded_symbol": null,
+                "publicly_traded_exchange": null,
+                "logo_url": "https://zenprospect-production.s3.amazonaws.com/uploads/pictures/645166e576ec8b00010ea120/picture",
+                "crunchbase_url": null,
+                "primary_domain": null,
+                "industry": "venture capital & private equity",
+                "keywords": [],
+                "estimated_num_employees": 110,
+                "industries": [
+                    "venture capital & private equity"
+                ],
+                "secondary_industries": [],
+                "snippets_loaded": true,
+                "industry_tag_id": "5567e1587369641c48370000",
+                "industry_tag_hash": {
+                    "venture capital & private equity": "5567e1587369641c48370000"
+                },
+                "retail_location_count": 0,
+                "raw_address": "Dallas, Texas",
+                "street_address": "",
+                "city": "Dallas",
+                "state": "Texas",
+                "postal_code": null,
+                "country": "United States"
             },
-            "domain":"apollo.io",
-            "team_id":"6181a50999668600ded6fe71",
-            "organization_id":"5e66b6381e05b4008c8331b8",
-            "account_stage_id":"6181a50999668600ded6fe7c",
-            "source":"deployment",
-            "original_source":"deployment",
-            "owner_id":"6181a50a99668600ded6feed",
-            "created_at":"2021-11-03T16:18:47.229Z",
-            "phone_status":"no_status",
-            "test_predictive_score":null,
-            "hubspot_id":null,
-            "salesforce_id":null,
-            "crm_owner_id":null,
-            "parent_account_id":null,
-            "sanitized_phone":"+12023741312",
-            "account_playbook_statuses":[
-               {
-                  "_id":"61844b47a4258e00c2499c8e",
-                  "added_by_id":"6181a50a99668600ded6feed",
-                  "added_on":"2021-11-04T21:06:15.053+00:00",
-                  "completed_step_ids":[
-                     "6184391f26e0aa00a4ccc56b"
-                  ],
-                  "created_at":null,
-                  "current_step_id":"61844dba8b94530112288546",
-                  "finished_reason_cd":"completed_all_steps",
-                  "paused_reason_cd":null,
-                  "playbook_id":"6184388a0515e4008cbf5129",
-                  "position":2,
-                  "status_cd":"finished",
-                  "updated_at":null,
-                  "id":"61844b47a4258e00c2499c8e",
-                  "key":"61844b47a4258e00c2499c8e"
-               }
+            "intent_strength": null,
+            "show_intent": false,
+            "revealed_for_current_team": true,
+            "hashed_email": "97817c0c49994eb500ad0a5e7e2d8aed51977b26424d508f66e4e8887746a152",
+            "personal_emails": [
+                "royychung@gmail.com"
             ],
-            "existence_level":"full",
-            "label_ids":[
-               
+            "departments": [
+                "c_suite"
             ],
-            "typed_custom_fields":{
-               "618438b906b01300da086546":"Google, Okta, Lyft"
-            },
-            "modality":"account"
-         },
-         "phone_numbers":[
-            {
-               "raw_number":"+1 415-763-6055",
-               "sanitized_number":"+14157636055",
-               "type":"work_hq",
-               "position":0,
-               "status":"no_status"
-            }
-         ]
-      },
-      {
-         "revealed_for_current_team":true,
-         "email":"email_not_unlocked@domain.com",
-         "email_status":"verified",
-         "id":"611c931f1b404b00014e884c",
-         "first_name":"Roy",
-         "last_name":"Chung",
-         "name":"Roy Chung",
-         "linkedin_url":"http://www.linkedin.com/in/royychung",
-         "title":"Chief Business Officer",
-         "photo_url":"https://media-exp1.licdn.com/dms/image/C5603AQFVolaIjLeG3g/profile-displayphoto-shrink_200_200/0/1517707907539?e=1652918400\u0026v=beta\u0026t=cpM4yiTrGbgwEiM61eTYIsdW83u-bmv4m27hiaiJppU",
-         "twitter_url":"https://twitter.com/r1strategy",
-         "github_url":null,
-         "facebook_url":null,
-         "extrapolated_email_confidence":null,
-         "headline":"Founder @ Apollo - We're Hiring! 🚀",
-         "organization_id":"5e66b6381e05b4008c8331b8",
-         "state":"California",
-         "city":"San Francisco",
-         "country":"United States",
-         "organization":{
-            "id":"5e66b6381e05b4008c8331b8",
-            "name":"Apollo.io",
-            "website_url":"http://www.apollo.io",
-            "blog_url":null,
-            "angellist_url":null,
-            "linkedin_url":"http://www.linkedin.com/company/apolloio",
-            "twitter_url":"https://twitter.com/MeetApollo/",
-            "facebook_url":"https://www.facebook.com/MeetApollo/",
-            "primary_phone":{
-               "number":"+1 415-763-6055",
-               "source":"Owler"
-            },
-            "languages":[
-               
+            "subdepartments": [
+                "founder"
             ],
-            "alexa_ranking":2651,
-            "phone":"+1 415-763-6055",
-            "linkedin_uid":"18511550",
-            "founded_year":2015,
-            "publicly_traded_symbol":null,
-            "publicly_traded_exchange":null,
-            "logo_url":"https://zenprospect-production.s3.amazonaws.com/uploads/pictures/62299e01b86a98000152b0c5/picture",
-            "crunchbase_url":null,
-            "primary_domain":"apollo.io",
-            "persona_counts":{
-               
-            },
-            "industry":"computer software",
-            "keywords":[
-               "sales engagement",
-               "lead generation",
-               "predictive analytics",
-               "lead scoring",
-               "sales strategy",
-               "conversation intelligence",
-               "sales enablement",
-               "lead routing",
-               "sales development",
-               "email engagement",
-               "revenue intelligence",
-               "sales operations",
-               "demand generation"
+            "functions": [
+                "entrepreneurship"
             ],
-            "estimated_num_employees":200,
-            "snippets_loaded":true,
-            "industry_tag_id":"5567cd4e7369643b70010000",
-            "retail_location_count":0,
-            "raw_address":"535 Mission St, Suite 1100, San Francisco, California 94105, US",
-            "street_address":"535 Mission St",
-            "city":"San Francisco",
-            "state":"California",
-            "postal_code":"94105",
-            "country":"United States"
-         },
-         "account_id":"6182b6670e22be00ded90b0f",
-         "account":{
-            "id":"6182b6670e22be00ded90b0f",
-            "name":"Apollo.io",
-            "website_url":"http://www.apollo.io",
-            "blog_url":null,
-            "angellist_url":null,
-            "linkedin_url":"http://www.linkedin.com/company/apolloio",
-            "twitter_url":"https://twitter.com/MeetApollo/",
-            "facebook_url":"https://www.facebook.com/MeetApollo/",
-            "primary_phone":{
-               "number":"+1 415-763-6055",
-               "source":"Owler"
-            },
-            "languages":[
-               
-            ],
-            "alexa_ranking":2651,
-            "phone":"2023741312",
-            "linkedin_uid":"18511550",
-            "founded_year":2015,
-            "publicly_traded_symbol":null,
-            "publicly_traded_exchange":null,
-            "logo_url":"https://zenprospect-production.s3.amazonaws.com/uploads/pictures/62299e01b86a98000152b0c5/picture",
-            "crunchbase_url":null,
-            "primary_domain":"apollo.io",
-            "persona_counts":{
-               
-            },
-            "domain":"apollo.io",
-            "team_id":"6181a50999668600ded6fe71",
-            "organization_id":"5e66b6381e05b4008c8331b8",
-            "account_stage_id":"6181a50999668600ded6fe7c",
-            "source":"deployment",
-            "original_source":"deployment",
-            "owner_id":"6181a50a99668600ded6feed",
-            "created_at":"2021-11-03T16:18:47.229Z",
-            "phone_status":"no_status",
-            "test_predictive_score":null,
-            "hubspot_id":null,
-            "salesforce_id":null,
-            "crm_owner_id":null,
-            "parent_account_id":null,
-            "sanitized_phone":"+12023741312",
-            "account_playbook_statuses":[
-               {
-                  "_id":"61844b47a4258e00c2499c8e",
-                  "added_by_id":"6181a50a99668600ded6feed",
-                  "added_on":"2021-11-04T21:06:15.053+00:00",
-                  "completed_step_ids":[
-                     "6184391f26e0aa00a4ccc56b"
-                  ],
-                  "created_at":null,
-                  "current_step_id":"61844dba8b94530112288546",
-                  "finished_reason_cd":"completed_all_steps",
-                  "paused_reason_cd":null,
-                  "playbook_id":"6184388a0515e4008cbf5129",
-                  "position":2,
-                  "status_cd":"finished",
-                  "updated_at":null,
-                  "id":"61844b47a4258e00c2499c8e",
-                  "key":"61844b47a4258e00c2499c8e"
-               }
-            ],
-            "existence_level":"full",
-            "label_ids":[
-               
-            ],
-            "typed_custom_fields":{
-               "618438b906b01300da086546":"Google, Okta, Lyft"
-            },
-            "modality":"account"
-         },
-         "phone_numbers":[
-            {
-               "raw_number":"+1 415-763-6055",
-               "sanitized_number":"+14157636055",
-               "type":"work_hq",
-               "position":0,
-               "status":"no_status"
-            }
-         ]
-      }
-   ], 
-   "personal_emails": [
-       "personalemail1@domain.com",
-       "personalemail2@domain.com"
-   ],
-   "departments": [
-       "c_suite", 
-       "master_information_technology", 
-       "master_operations"
-   ],
-   "subdepartments": [
-       "operations_executive",
-       "business_service_management_itsm",
-       "operations"
-   ],
-   "functions": [
-       "operations"
-   ],
-   "seniority": "c_suite"
+            "seniority": "entry"
+        }
+    ]
 }
 ```
 
@@ -435,6 +534,7 @@ hashed_email (optional) | The person's md5 or sha256 hashed email | 8d935115b9ff
 organization_name (optional) | The person's company name | Apollo Inc.
 domain (optional) | The person's company domain | apollo.io
 id (optional) |  The person's ID obtained from the search endpoint | "583f2f7ed9ced98ab5bfXXXX"
+linkedin_url (optional) | The person's linkedin URL | http://www.linkedin.com/in/tim-zheng
 reveal_personal_emails (optional) | Flag to reveal personal emails | true
 reveal_phone_number (optional) | Flag to reveal phone number | true
 webhook_url (optional) | Webhook URL for sending 'reveal_phone_number' response | "https://example.com/hook"
@@ -824,7 +924,8 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "email": "name@domain.io",
     "hashed_email": "8d935115b9ff4489f2d1f9249503cadf",
     "domain": "apollo.io",
-    "reveal_personal_emails": true
+    "reveal_personal_emails": true,
+    "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010"
 }' "https://api.apollo.io/v1/people/match"
 ```
 
@@ -842,7 +943,8 @@ data = {
     "email": "name@domain.io",
     "hashed_email": "8d935115b9ff4489f2d1f9249503cadf",
     "domain": "apollo.io",
-    "reveal_personal_emails": true
+    "reveal_personal_emails": true,
+    "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010"
 }
 
 headers = {
@@ -860,102 +962,113 @@ print(response.text)
 ```json
 {
     "person": {
-        "id": "583f2f7ed9ced98ab5bfXXXX",
+        "id": "6453e9bd8f50d40001f1e348",
         "first_name": "Tim",
         "last_name": "Zheng",
         "name": "Tim Zheng",
         "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010",
         "title": "Founder & CEO",
-        "city": "San Francisco",
         "email_status": null,
-        "photo_url": "https://media-server.url",
+        "photo_url": "https://media.licdn.com/dms/image/D5603AQEFiVRxq2aFCg/profile-displayphoto-shrink_200_200/0/1676521918175?e=1701907200&v=beta&t=6QqL_xwsDybj-FIUTr6XaEeLyrHxs7QS-IHSbVtYCak",
         "twitter_url": null,
         "github_url": null,
         "facebook_url": null,
         "extrapolated_email_confidence": null,
         "headline": "Founder & CEO at Apollo",
-        "country": "United States",
         "email": "name@domain.io",
-        "state": "CA",
-        "excluded_for_leadgen": false,
-        "contact_id": "5da8ceXXXXXXXXXXXXXXXX",
-        "contact": {
-            "id": "5da8ceXXXXXXXXXXXXXXXX",
-            "first_name": "Tim",
-            "last_name": "Zheng",
-            "name": "Tim Zheng",
-            "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010",
-            "title": "Founder & CEO",
-            "contact_stage_id": "5c48fb36ae29ba0f376d11ab",
-            "owner_id": "5c1004XXXXXXXXXXXXXXXXXX",
-            "person_id": "5eb53cXXXXXXXXXXXXXXXX",
-            "email_needs_tickling": false,
-            "organization_name": "Apollo",
-            "source": "search",
-            "original_source": "email_import",
-            "organization_id": "5e66b6XXXXXXXXXXXXXXXX",
-            "headline": "Founder & CEO at Apollo",
-            "photo_url": "https://static-exp2.licdn.com/sc/h/djzv59yelk5urv2ujlazfyvrk",
-            "present_raw_address": "San Francisco, California, United States",
-            "linkedin_uid": "38777275",
-            "extrapolated_email_confidence": 0,
-            "salesforce_id": "0031UXXXXXXXXXXXX",
-            "salesforce_lead_id": null,
-            "salesforce_contact_id": "0031UXXXXXXXXXXXX",
-            "salesforce_account_id": "0011UXXXXXXXXXXXX",
-            "salesforce_owner_id": "0051UXXXXXXXXXXXX",
-            "created_at": "2019-10-17T20:25:07.594Z",
-            "lead_request_id": null,
-            "test_predictive_score": null,
-            "emailer_campaign_ids": [],
-            "email_manually_changed": false,
-            "direct_dial_status": null,
-            "direct_dial_enrichment_failed_at": null,
-            "email_status": "verified",
-            "account_id": "5f1faXXXXXXXXXXXXXXXX",
-            "last_activity_date": "2018-06-26T16:30:35.000+00:00",
-            "hubspot_vid": null,
-            "hubspot_company_id": null,
-            "sanitized_phone": null,
-            "merged_crm_ids": [],
-            "typed_custom_fields": {
-                "5d856e9c6899d00098XXXXXX": "Tim Zheng"
+        "organization_id": "5e66b6381e05b4008c8331b8",
+        "employment_history": [
+            {
+                "_id": "651e57392998d400013ac5bd",
+                "created_at": null,
+                "current": true,
+                "degree": null,
+                "description": null,
+                "emails": null,
+                "end_date": null,
+                "grade_level": null,
+                "kind": null,
+                "major": null,
+                "organization_id": "5e66b6381e05b4008c8331b8",
+                "organization_name": "Apollo",
+                "raw_address": null,
+                "start_date": "2016-01-01",
+                "title": "Founder & CEO",
+                "updated_at": null,
+                "id": "651e57392998d400013ac5bd",
+                "key": "651e57392998d400013ac5bd"
             },
-            "updated_at": "2020-07-28T04:44:51.448Z",
-            "queued_for_crm_push": false,
-            "starred_by_user_ids": [],
-            "suggested_from_rule_engine_config_id": null,
-            "label_ids": [],
-            "has_pending_email_arcgate_request": false,
-            "has_email_arcgate_request": false,
-            "existence_level": "full",
-            "email": "example@domain.com",
-            "salesforce_record_url": "https://na85.salesforce.com/0031UXXXXXXXXXXXX",
-            "phone_numbers": [],
-            "account_phone_note": null
-        },
-        "revealed_for_current_team": true,
-        "organization_id": "5e66b6XXXXXXXXXXXXXXXX",
+            {
+                "_id": "651e57392998d400013ac5be",
+                "created_at": null,
+                "current": false,
+                "degree": null,
+                "description": null,
+                "emails": null,
+                "end_date": "2015-01-01",
+                "grade_level": null,
+                "kind": null,
+                "major": null,
+                "organization_id": null,
+                "organization_name": "Braingenie",
+                "raw_address": null,
+                "start_date": "2011-01-01",
+                "title": "Founder & CEO",
+                "updated_at": null,
+                "id": "651e57392998d400013ac5be",
+                "key": "651e57392998d400013ac5be"
+            },
+            {
+                "_id": "651e57392998d400013ac5bf",
+                "created_at": null,
+                "current": false,
+                "degree": null,
+                "description": null,
+                "emails": null,
+                "end_date": "2011-01-01",
+                "grade_level": null,
+                "kind": null,
+                "major": null,
+                "organization_id": "54a22f23746869331840e813",
+                "organization_name": "Citadel Investment Group",
+                "raw_address": null,
+                "start_date": "2011-01-01",
+                "title": "Investment & Trading Associate",
+                "updated_at": null,
+                "id": "651e57392998d400013ac5bf",
+                "key": "651e57392998d400013ac5bf"
+            },
+            ...
+        ],
+        "state": "California",
+        "city": "San Francisco",
+        "country": "United States",
         "organization": {
-            "id": "5e66b6XXXXXXXXXXXXXXXX",
-            "name": "Apollo",
+            "id": "5e66b6381e05b4008c8331b8",
+            "name": "Apollo.io",
             "website_url": "http://www.apollo.io",
             "blog_url": null,
             "angellist_url": null,
             "linkedin_url": "http://www.linkedin.com/company/apolloio",
-            "twitter_url": "https://twitter.com/MeetApollo/",
-            "facebook_url": "https://www.facebook.com/MeetApollo/",
+            "twitter_url": "https://twitter.com/meetapollo/",
+            "facebook_url": "https://www.facebook.com/MeetApollo",
+            "primary_phone": {
+                "number": "+1415-640-9303",
+                "source": "Owler",
+                "country_code_added_from_hq": true
+            },
             "languages": [],
-            "alexa_ranking": 1955,
-            "phone": null,
+            "alexa_ranking": 3514,
+            "phone": "+1415-640-9303",
             "linkedin_uid": "18511550",
+            "founded_year": 2015,
             "publicly_traded_symbol": null,
             "publicly_traded_exchange": null,
-            "logo_url": "https://apollo-server.com/uploads/pictures/5f026XXXXXXXXXXXXXXXX/picture",
+            "logo_url": "https://zenprospect-production.s3.amazonaws.com/uploads/pictures/64beb2c5e966df0001384ac1/picture",
             "crunchbase_url": null,
             "primary_domain": "apollo.io",
-            "persona_counts": {},
-            "industry": "computer software",
+            "sanitized_phone": "+14156409303",
+            "industry": "information technology & services",
             "keywords": [
                 "sales engagement",
                 "lead generation",
@@ -966,14 +1079,24 @@ print(response.text)
                 "sales enablement",
                 "lead routing",
                 "sales development",
-                "and email engagement"
+                "email engagement",
+                "revenue intelligence",
+                "sales operations",
+                "demand generation"
             ],
-            "estimated_num_employees": 38,
+            "estimated_num_employees": 1200,
+            "industries": [
+                "information technology & services"
+            ],
+            "secondary_industries": [],
             "snippets_loaded": true,
-            "industry_tag_id": "5567cdXXXXXXXXXXXXXXXX",
+            "industry_tag_id": "5567cd4773696439b10b0000",
+            "industry_tag_hash": {
+                "information technology & services": "5567cd4773696439b10b0000"
+            },
             "retail_location_count": 0,
-            "raw_address": "535 Mission St, Suite 1100, San Francisco, California 94105, US",
-            "street_address": "535 Mission St",
+            "raw_address": "535 mission street, san francisco, california, united states",
+            "street_address": "535 Mission Street",
             "city": "San Francisco",
             "state": "California",
             "postal_code": "94105",
@@ -981,82 +1104,90 @@ print(response.text)
             "owned_by_organization_id": null,
             "suborganizations": [],
             "num_suborganizations": 0,
-            "seo_description": "Apollo is an intelligent, data-first engagement platform that puts structured data at the core of your workflows to help you execute, analyze, and improve on your growth strategy.",
-            "short_description": "Apollo is the unified engagement acceleration platform that gives reps the ability to dramatically increase their number of quality conversations and opportunities. Reps are ...",
-            "total_funding": null,
-            "total_funding_printed": null,
-            "latest_funding_round_date": null,
-            "latest_funding_stage": null,
-            "funding_events": [],
-            "technology_names": [
-                "Cloudflare DNS",
-                "Rackspace MailGun",
-                "Gmail",
-                "Marketo",
-                "Google Apps",
-                "Microsoft Office 365",
-                "CloudFlare Hosting",
-                ...
-            ],
-            "current_technologies": [
+            "seo_description": "Search, engage, and convert over 265 million contacts at over 70 million companies with Apollo's sales intelligence and engagement platform.",
+            "short_description": "Apollo.io combines a buyer database of over 270M contacts and powerful sales engagement and automation tools in one, easy to use platform. Trusted by over 160,000 companies including Autodesk, Rippling, Deel, Jasper.ai, Divvy, and Heap, Apollo has more than one million users globally. By helping sales professionals find their ideal buyers and intelligently automate outreach, Apollo helps go-to-market teams sell anything.\n\nCelebrating a $100M Series D Funding Round 🦄",
+            "annual_revenue_printed": "345.6M",
+            "annual_revenue": 345600000.0,
+            "total_funding": 251200000,
+            "total_funding_printed": "251.2M",
+            "latest_funding_round_date": "2023-08-01T00:00:00.000+00:00",
+            "latest_funding_stage": "Series D",
+            "funding_events": [
                 {
-                    "uid": "cloudflare_dns",
-                    "name": "Cloudflare DNS",
-                    "category": "Domain Name Services"
+                    "id": "6520fc8e0f5b210001b5285b",
+                    "date": "2023-08-01T00:00:00.000+00:00",
+                    "news_url": null,
+                    "type": "Series D",
+                    "investors": "Bain Capital Ventures, Sequoia Capital, Tribe Capital, Nexus Venture Partners",
+                    "amount": "100M",
+                    "currency": "$"
                 },
                 {
-                    "uid": "rackspace_mailgun",
-                    "name": "Rackspace MailGun",
-                    "category": "Email Delivery"
+                    "id": "624f4dfec786590001768016",
+                    "date": "2022-03-01T00:00:00.000+00:00",
+                    "news_url": null,
+                    "type": "Series C",
+                    "investors": "Sequoia Capital, Tribe Capital, Nexus Venture Partners, NewView Capital",
+                    "amount": "110M",
+                    "currency": "$"
                 },
                 {
-                    "uid": "gmail",
-                    "name": "Gmail",
-                    "category": "Email Providers"
+                    "id": "61b13677623110000186a478",
+                    "date": "2021-10-01T00:00:00.000+00:00",
+                    "news_url": null,
+                    "type": "Series B",
+                    "investors": "Tribe Capital, NewView Capital, Nexus Venture Partners",
+                    "amount": "32M",
+                    "currency": "$"
                 },
                 {
-                    "uid": "marketo",
-                    "name": "Marketo",
-                    "category": "Marketing Automation"
+                    "id": "5ffe93caa54d75077c59acef",
+                    "date": "2018-06-26T00:00:00.000+00:00",
+                    "news_url": "https://techcrunch.com/2018/06/26/yc-grad-zenprospect-rebrands-as-apollo-lands-7-m-series-a/",
+                    "type": "Series A",
+                    "investors": "Nexus Venture Partners, Social Capital, Y Combinator",
+                    "amount": "7M",
+                    "currency": "$"
                 },
                 {
-                    "uid": "google_apps",
-                    "name": "Google Apps",
-                    "category": "Other"
-                },
-                {
-                    "uid": "office_365",
-                    "name": "Microsoft Office 365",
-                    "category": "Other"
-                },
-                {
-                    "uid": "cloudflare_hosting",
-                    "name": "CloudFlare Hosting",
-                    "category": "Hosting"
-                },
-                {
-                   ...
+                    "id": "6520fc8f0f5b210001b52860",
+                    "date": "2016-10-01T00:00:00.000+00:00",
+                    "news_url": null,
+                    "type": "Other",
+                    "investors": "Y Combinator, SV Angel, Social Capital, Nexus Venture Partners",
+                    "amount": "2.2M",
+                    "currency": "$"
                 }
-            ]
+            ],
+            ...
         },
-        "personal_emails": [
-            "personalemail1@domain.com",
-            "personalemail2@domain.com"
+        "phone_numbers": [
+            {
+                "raw_number": "+1415-640-9303",
+                "sanitized_number": "+14156409303",
+                "type": "work_hq",
+                "position": 0,
+                "status": "no_status",
+                "dnc_status": null,
+                "dnc_other_info": null
+            }
         ],
-       "departments": [
-           "c_suite",
-           "master_information_technology",
-           "master_operations"
-       ],
-       "subdepartments": [
-           "operations_executive",
-           "business_service_management_itsm",
-           "operations"
-       ],
-       "functions": [
-           "operations"
-       ],
-       "seniority": "c_suite"
+        "intent_strength": null,
+        "show_intent": false,
+        "revealed_for_current_team": true,
+        "hashed_email": "8d935115b9ff4489f2d1f9249503cadf",
+        "personal_emails": [],
+        "departments": [
+            "c_suite"
+        ],
+        "subdepartments": [
+            "executive",
+            "founder"
+        ],
+        "functions": [
+            "entrepreneurship"
+        ],
+        "seniority": "founder"
     }
 }
 ```
@@ -1077,6 +1208,7 @@ hashed_email (optional) | The person's md5 or sha256 hashed email | 8d935115b9ff
 organization_name (optional) | The person's company name | Apollo Inc.
 domain (optional) | The person's company domain | apollo.io
 id (optional) |  The person's ID obtained from the search endpoint | "583f2f7ed9ced98ab5bfXXXX"
+linkedin_url (optional) | The person's linkedin URL | http://www.linkedin.com/in/tim-zheng
 reveal_personal_emails (optional) | Flag to reveal personal emails | true
 reveal_phone_number (optional) | Flag to reveal phone number | true
 webhook_url (optional) | Webhook URL for sending 'reveal_phone_number' response | "https://example.com/hook"
