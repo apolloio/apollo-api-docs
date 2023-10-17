@@ -11,6 +11,10 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "api_key": "YOUR API KEY HERE",
     "q_organization_domains": "apollo.io\ngoogle.com",
     "page" : 1,
+    "per_page": 10,
+    "organization_locations": ["California, US"],
+    "person_seniorities": ["senior", "manager"],
+    "organization_num_employees_ranges": ["1,1000000"],
     "person_titles" : ["sales manager", "engineer manager"]
 }' "https://api.apollo.io/v1/mixed_people/search"
 ``` 
@@ -24,6 +28,10 @@ data = {
     "api_key": "YOUR API KEY HERE",
     "q_organization_domains": "apollo.io\ngoogle.com",
     "page" : 1,
+    "per_page": 10,
+    "organization_locations": ["California, US"],
+    "person_seniorities": ["senior", "manager"],
+    "organization_num_employees_ranges": ["1,1000000"],
     "person_titles" : ["sales manager", "engineer manager"]
 }
 
@@ -55,6 +63,30 @@ print(response.text)
             "display_name": "engineer manager"
         },
         {
+            "label": "# Employees",
+            "signal_field_name": "organization_num_employees_ranges",
+            "value": "1,1000000",
+            "display_name": "1-1000000"
+        },
+        {
+            "label": "Management Level",
+            "signal_field_name": "person_seniorities",
+            "value": "senior",
+            "display_name": "Senior"
+        },
+        {
+            "label": "Management Level",
+            "signal_field_name": "person_seniorities",
+            "value": "manager",
+            "display_name": "Manager"
+        },
+        {
+            "label": "Company Locations",
+            "signal_field_name": "organization_locations",
+            "value": "California, US",
+            "display_name": "California, US"
+        },
+        {
             "label": "Company Domains",
             "signal_field_name": "q_organization_domains",
             "value": [
@@ -65,12 +97,13 @@ print(response.text)
         }
     ],
     "partial_results_only": false,
+    "disable_eu_prospecting": false,
     "partial_results_limit": 10000,
     "pagination": {
         "page": 1,
         "per_page": 10,
-        "total_entries": 1339,
-        "total_pages": 134
+        "total_entries": 2145,
+        "total_pages": 215
     },
     "contacts": [],
     "people": [
@@ -256,9 +289,19 @@ This endpoint searches for people and do not return any email information. To ge
 
 Parameter | Description | Example
 --------- | ----------- | -----------
-person_titles (optional) | An array of the person's title. Apollo will return results matching ANY of the titles passed in |  ["sales director", "engineer manager"]
-q_organization_domains (optional) | An array of the company domains to search for, joined by the new line character.  | "google.com\nfacebook.com"
+person_titles (optional)                | An array of the person's title. Apollo will return results matching ANY of the titles passed in |  ["sales director", "engineer manager"]
+q_keywords (optional)                   | A string of words over which we want to filter the results | "Tim"
+prospected_by_current_team (optional)   | An array of string booleans defining whether we want models prospected by current team or not. "no" means to look in net new database only, "yes" means to see saved contacts only | ["no"]
+person_locations (optional)             | An array of strings denoting allowed locations of the person | ["California, US", "Minnesota, US"]
+person_seniorities (optional)           | An array of strings denoting the seniorities or levels  | ["senior", "manager"]
+contact_email_status (optional)         | An array of string to look for people having a set of of email statuses | ["verified", "guessed", "unavailable", "bounced", "pending_manual_fulfillment"]
+q_organization_domains (optional)       | An array of the company domains to search for, joined by the new line character.  | "google.com\nfacebook.com"
+organization_locations (optional)       | An array of strings denoting allowed locations of organization headquarters of the person | ["California, US", "Minnesota, US"]
+organization_ids (optional)             | An array of organization ids obtained from companies-search | ["63ff0bc1ff57ba0001e7eXXX"]
+organization_num_employees_ranges (optional)   | An array of intervals to include people belonging in an organization having number of employees in a range | ["1,10", "101,200" ]
 page (optional) | An integer that allows you to paginate through the results  | 1
+per_page (optional) | An integer to load per_page results on a page. Should be in inclusive range [1, 100] | 10
+
 
 ### Return results
 "people" are people in Apollo's database.
