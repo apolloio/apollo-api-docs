@@ -294,7 +294,7 @@ q_keywords (optional)                   | A string of words over which we want t
 prospected_by_current_team (optional)   | An array of string booleans defining whether we want models prospected by current team or not. "no" means to look in net new database only, "yes" means to see saved contacts only | ["no"]
 person_locations (optional)             | An array of strings denoting allowed locations of the person | ["California, US", "Minnesota, US"]
 person_seniorities (optional)           | An array of strings denoting the seniorities or levels  | ["senior", "manager"]
-contact_email_status (optional)         | An array of string to look for people having a set of of email statuses | ["verified", "guessed", "unavailable", "bounced", "pending_manual_fulfillment"]
+contact_email_status (optional)         | An array of strings to look for people having a set of email statuses | ["verified", "guessed", "unavailable", "bounced", "pending_manual_fulfillment"]
 q_organization_domains (optional)       | An array of the company domains to search for, joined by the new line character.  | "google.com\nfacebook.com"
 organization_locations (optional)       | An array of strings denoting allowed locations of organization headquarters of the person | ["California, US", "Minnesota, US"]
 organization_ids (optional)             | An array of organization ids obtained from companies-search | ["63ff0bc1ff57ba0001e7eXXX"]
