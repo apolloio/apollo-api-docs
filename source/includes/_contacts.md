@@ -147,13 +147,13 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
     "email": “jon.snow@westeros.com”,
     "title": "Lord Commander",
     "organization_name": "Westeros"
-}' "https://api.apollo.io/v1/contacts/YOUR CONTACT ID"
+}' "https://api.apollo.io/v1/contacts/YOUR_CONTACT_ID"
 ```
 
 ```python
 import requests
 
-url = "https://api.apollo.io/v1/contacts/YOUR CONTACT ID"
+url = "https://api.apollo.io/v1/contacts/YOUR_CONTACT_ID"
 
 data = {
     "api_key": "YOUR API KEY HERE",
@@ -247,7 +247,7 @@ print(response.text)
 }
 ```
 
-`PUT https://api.apollo.io/v1/contacts`
+`PUT https://api.apollo.io/v1/contacts/YOUR_CONTACT_ID`
 
 <aside class="notice">
 Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/update_stages instead.

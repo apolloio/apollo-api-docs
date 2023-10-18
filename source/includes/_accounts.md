@@ -93,13 +93,13 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
     "api_key": "YOUR API KEY HERE",
     "name": "new name ",
 
-}' "https://api.apollo.io/v1/accounts/ACOUNT_ID"
+}' "https://api.apollo.io/v1/accounts/YOUR_ACCOUNT_ID"
 ```
 
 ```python
 import requests
 
-url = "https://api.apollo.io/v1/accounts/ACOUNT_ID"
+url = "https://api.apollo.io/v1/accounts/YOUR_ACCOUNT_ID"
 
 data = {
   "api_key": "YOUR API KEY HERE",
@@ -149,7 +149,7 @@ print(response.text)
 }
 ```
 
-`PUT https://api.apollo.io/v1/accounts`
+`PUT https://api.apollo.io/v1/accounts/YOUR_ACCOUNT_ID`
 
 | Parameter     | Description                                |
 | ------------- | ------------------------------------------ |
