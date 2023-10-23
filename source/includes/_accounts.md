@@ -91,19 +91,19 @@ print(response.text)
 ```shell
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE",
-    "name": "new name ",
+    "name": "new name "
 
-}' "https://api.apollo.io/v1/accounts/ACOUNT_ID"
+}' "https://api.apollo.io/v1/accounts/YOUR_ACCOUNT_ID"
 ```
 
 ```python
 import requests
 
-url = "https://api.apollo.io/v1/accounts/ACOUNT_ID"
+url = "https://api.apollo.io/v1/accounts/YOUR_ACCOUNT_ID"
 
 data = {
   "api_key": "YOUR API KEY HERE",
-    "name": "new name ",
+  "name": "new name ",
 }
 
 headers = {
@@ -149,11 +149,12 @@ print(response.text)
 }
 ```
 
-`PUT https://api.apollo.io/v1/accounts`
+This endpoint takes a `YOUR_ACCOUNT_ID` field at the end of the request URL to update an account
+
+`PUT https://api.apollo.io/v1/accounts/YOUR_ACCOUNT_ID`
 
 | Parameter     | Description                                |
 | ------------- | ------------------------------------------ |
-| id (Required) | Account ID                                 |
 | name          | The account's name                         |
 | domain        | The domain of the account you are updating |
 | phone_number  | The corporate phone for this account.      |
