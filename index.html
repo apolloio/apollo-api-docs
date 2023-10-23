@@ -351,6 +351,9 @@
                   <li>
                     <a href="#organization-jobs-postings" class="toc-h2 toc-link" data-title="Organization jobs postings">Organization jobs postings</a>
                   </li>
+                  <li>
+                    <a href="#organization-search" class="toc-h2 toc-link" data-title="Organization search">Organization search</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -2459,6 +2462,240 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <td>54fca1087369647fcXXXXXXX</td>
 </tr>
 </tbody></table>
+<h2 id='organization-search'>Organization search</h2>
+<blockquote>
+<p>Sample request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
+  "api_key": "YOUR API KEY HERE",
+  "page": 1,
+  "per_page": 10,
+  "organization_num_employees_ranges": ["1,100", "1,1000"],
+  "organization_locations": ["United States"],
+  "q_organization_keyword_tags": ["sales strategy", "lead"],
+  "q_organization_name": "Apollo.io"
+}'</span> <span class="s2">"https://api.apollo.io/api/v1/mixed_companies/search"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/api/v1/mixed_companies/search"</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
+    <span class="s">"page"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s">"per_page"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>  
+    <span class="s">"organization_num_employees_ranges"</span><span class="p">:[</span><span class="s">"1,100"</span><span class="p">,</span> <span class="s">"1,1000"</span><span class="p">],</span>
+    <span class="s">"organization_locations"</span><span class="p">:[</span><span class="s">"United States"</span><span class="p">],</span>
+    <span class="s">"q_organization_keyword_tags"</span><span class="p">:[</span><span class="s">"sales strategy"</span><span class="p">,</span> <span class="s">"lead"</span><span class="p">],</span>
+    <span class="s">"q_organization_name"</span><span class="p">:</span><span class="s">"Apollo.io"</span>
+<span class="p">}</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<blockquote>
+<p>Sample response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"breadcrumbs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company Name"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"signal_field_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"q_organization_name"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apollo.io"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apollo.io"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"# Employees"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"signal_field_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organization_num_employees_ranges"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1,100"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-100"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"# Employees"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"signal_field_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organization_num_employees_ranges"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1,1000"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1-1000"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company Locations"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"signal_field_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organization_locations"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company Keywords Contain ANY Of"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"signal_field_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"q_organization_keyword_tags"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales strategy"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales strategy"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company Keywords Contain ANY Of"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"signal_field_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"q_organization_keyword_tags"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"partial_results_only"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"disable_eu_prospecting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"partial_results_limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_entries"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"63b3e47f0deb820001XXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apollo.io"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"website_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"blog_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"angellist_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"linkedin_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.linkedin.com/company/apolXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"twitter_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/MeetApolXXXXX/"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"facebook_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://facebook.com/MeetApoXXXXX/"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"primary_phone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1 415-640-9303"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Account"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"alexa_ranking"</span><span class="p">:</span><span class="w"> </span><span class="mi">3514</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"linkedin_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18511550"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"founded_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2015</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"publicly_traded_symbol"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"publicly_traded_exchange"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://zenprospect-production.s3.amazonaws.com/uploads/pictures/63d3a127e242df0001eXXXXX/picture"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"crunchbase_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"primary_domain"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sanitized_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+14156409303"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owned_by_organization_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"organization_raw_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"535 mission st, suite 1100, san francisco, california 94105, us"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"organization_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"organization_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"535 Mission St"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"organization_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"California"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"organization_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"organization_postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"94105"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"suggest_location_enrichment"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"parent_account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"62b5283531e821000XXXXX"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apollo.io"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apollo.io"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"team_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"551e3ef072616951471XXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"organization_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65080f223660ac000XXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_stage_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5711a6247ff0bb33edXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"job_change"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"original_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"job_change"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"creator_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5eaf980991763800eXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-01-03T08:17:03.163Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phone_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_status"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"hubspot_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0015a00003AXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"crm_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0052L000003XXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"parent_account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"62b5283531e82100012XXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_playbook_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"account_rule_config_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"existence_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"label_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"typed_custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"5b7aff6c55884769e38XXXXX"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"5ee1d989add32701128XXXXX"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0015a00003AjsaS"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"5f28afc474e70000f12XXXXX"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High Tier"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"modality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"account"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesforce_record_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apolloio.my.salesforce.com/0015a00003AjsXXXXX"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"contact_emailer_campaign_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"6488dbeb72e68a00d9XXXXX"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"contact_campaign_status_tally"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"finished"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"paused"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"not_sent"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"num_contacts"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_activity_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-09-26T05:31:52.000+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"intent_strength"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"show_intent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"organizations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"model_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"63b3e47f0deb820001fXXXXX"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"num_fetch_result"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"derived_params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"recommendation_config_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"650bc3a2c7d5a700d09XXXXX"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint searches for organizations. </p>
+
+<p><code>POST https://api.apollo.io/api/v1/mixed_companies/search</code></p>
+<h3 id='query-parameters-2'>Query parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>organization_ids (optional)</td>
+<td>An array of organization ids obtained from companies-search</td>
+<td>[&quot;63ff0bc1ff57ba0001e7eXXX&quot;]</td>
+</tr>
+<tr>
+<td>organization_num_employees_ranges (optional)</td>
+<td>An array of intervals to include organizations having number of employees in a range</td>
+<td>[&quot;1,10&quot;, &quot;101,200&quot; ]</td>
+</tr>
+<tr>
+<td>organization_locations (optional)</td>
+<td>An array of strings denoting allowed locations of organization headquarters</td>
+<td>[&quot;California, US&quot;, &quot;Minnesota, US&quot;]</td>
+</tr>
+<tr>
+<td>organization_not_locations (optional)</td>
+<td>An array of strings denoting un-allowed locations of organization headquarters</td>
+<td>[&quot;Chicago, US&quot;]</td>
+</tr>
+<tr>
+<td>q_organization_keyword_tags (optional)</td>
+<td>An array of strings denoting the keywords an organization should be associated with</td>
+<td>[&quot;sales strategy&quot;, &quot;lead&quot;]</td>
+</tr>
+<tr>
+<td>prospected_by_current_team (optional)</td>
+<td>An array of string booleans defining whether we want models prospected by current team or not. &quot;no&quot; means to look in net new database only, &quot;yes&quot; means to see saved organizations only</td>
+<td>[&quot;no&quot;]</td>
+</tr>
+<tr>
+<td>q_organization_name (optional)</td>
+<td>A string representing the name of the organization we want to filter</td>
+<td>&quot;Apollo&quot;</td>
+</tr>
+<tr>
+<td>page (optional)</td>
+<td>An integer that allows you to paginate through the results</td>
+<td>1</td>
+</tr>
+<tr>
+<td>per_page (optional)</td>
+<td>An integer to load per_page results on a page. Should be in inclusive range [1, 100]</td>
+<td>10</td>
+</tr>
+</tbody></table>
+<h3 id='return-results'>Return results</h3>
+<p>&quot;organizations&quot; are organizations in Apollo&#39;s database.
+&quot;accounts&quot; are organizations already in your linked CRM.</p>
 <h1 id='opportunities-api'>Opportunities API</h1>
 <p>Opportunities are records that you can use to track possible deals with your prospective customers.
 Opportunities can be associated with both companies and people in Apollo.</p>
