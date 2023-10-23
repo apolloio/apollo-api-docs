@@ -174,14 +174,14 @@ print(response.text)
     },
     "accounts": [
         {
-            "id": "63b3e47f0deb820001f19XXX",
+            "id": "63b3e47f0deb820001XXXXX",
             "name": "Apollo.io",
             "website_url": null,
             "blog_url": null,
             "angellist_url": null,
-            "linkedin_url": "http://www.linkedin.com/company/apollxxx",
-            "twitter_url": "https://twitter.com/MeetApoxxx/",
-            "facebook_url": "https://facebook.com/MeetApoxxx/",
+            "linkedin_url": "http://www.linkedin.com/company/apolXXXXX",
+            "twitter_url": "https://twitter.com/MeetApolXXXXX/",
+            "facebook_url": "https://facebook.com/MeetApoXXXXX/",
             "primary_phone": {
                 "number": "+1 415-640-9303",
                 "source": "Account"
@@ -193,7 +193,7 @@ print(response.text)
             "founded_year": 2015,
             "publicly_traded_symbol": null,
             "publicly_traded_exchange": null,
-            "logo_url": null,
+            "logo_url": "https://zenprospect-production.s3.amazonaws.com/uploads/pictures/63d3a127e242df0001eXXXXX/picture",
             "crunchbase_url": null,
             "primary_domain": null,
             "sanitized_phone": "+14156409303",
@@ -206,21 +206,42 @@ print(response.text)
             "organization_postal_code": "94105",
             "suggest_location_enrichment": false,
             "parent_account": {
-                "id": "62b5283531e8210001210XXX",
+                "id": "62b5283531e821000XXXXX",
                 "name": "Apollo.io"
             },
             "domain": "apollo.io",
-            ...
+            "team_id": "551e3ef072616951471XXXXX",
+            "organization_id": "65080f223660ac000XXXXX",
+            "account_stage_id": "5711a6247ff0bb33edXXXXX",
+            "source": "job_change",
+            "original_source": "job_change",
+            "creator_id": null,
+            "owner_id": "5eaf980991763800eXXXXX",
+            "created_at": "2023-01-03T08:17:03.163Z",
+            "phone_status": "no_status",
+            "hubspot_id": null,
+            "salesforce_id": "0015a00003AXXXXX",
+            "crm_owner_id": "0052L000003XXXXX",
+            "parent_account_id": "62b5283531e82100012XXXXX",
+            "account_playbook_statuses": [],
+            "account_rule_config_statuses": [],
+            "existence_level": "full",
+            "label_ids": [],
+            "typed_custom_fields": {
+                "5b7aff6c55884769e38XXXXX": 7.0,
+                "5ee1d989add32701128XXXXX": "0015a00003AjsaS",
+                "5f28afc474e70000f12XXXXX": "High Tier"
+            },
             "modality": "account",
-            "salesforce_record_url": "https://apolloio.my.salesforce.com/0015a00003XXXXX",
+            "salesforce_record_url": "https://apolloio.my.salesforce.com/0015a00003AjsXXXXX",
             "contact_emailer_campaign_ids": [
-                "63bd1810cebfc600a3fXXXXX"
+                "6488dbeb72e68a00d9XXXXX"
             ],
             "contact_campaign_status_tally": {
                 "finished": 6,
                 "paused": 4,
-                "active": 1,
-                "not_sent": 1
+                "not_sent": 1,
+                "active": 1
             },
             "num_contacts": 17,
             "last_activity_date": "2023-09-26T05:31:52.000+00:00",
@@ -230,11 +251,11 @@ print(response.text)
     ],
     "organizations": [],
     "model_ids": [
-        "63b3e47f0deb820001f1XXX"
+        "63b3e47f0deb820001fXXXXX"
     ],
     "num_fetch_result": null,
     "derived_params": {
-        "recommendation_config_id": "650bc3a2c7d5a700d091XXX"
+        "recommendation_config_id": "650bc3a2c7d5a700d09XXXXX"
     }
 }
 ```
