@@ -3258,13 +3258,13 @@ Apollo does not run any deduplication during <code>CREATE</code>. If your record
     "api_key": "YOUR API KEY HERE",
     "first_name": "Jon",
     "last_name": "Snow",
-    "email": “jon.snow@westeros.com”,
+    "email": "jon.snow@westeros.com",
     "title": "Lord Commander",
     "organization_name": "Westeros"
-}'</span> <span class="s2">"https://api.apollo.io/v1/contacts/YOUR CONTACT ID"</span>
+}'</span> <span class="s2">"https://api.apollo.io/v1/contacts/YOUR_CONTACT_ID"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/contacts/YOUR CONTACT ID"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/contacts/YOUR_CONTACT_ID"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
@@ -3356,7 +3356,9 @@ Apollo does not run any deduplication during <code>CREATE</code>. If your record
     </span><span class="nl">"labels"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><code>PUT https://api.apollo.io/v1/contacts</code></p>
+<p>This endpoint takes a <code>YOUR_CONTACT_ID</code> field at the end of the request URL to update a contact</p>
+
+<p><code>PUT https://api.apollo.io/v1/contacts/YOUR_CONTACT_ID</code></p>
 
 <aside class="notice">
 Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/update_stages instead.
@@ -3369,11 +3371,6 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <th>Example</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>id (Required)</td>
-<td>Contact ID</td>
-<td>&quot;583f2f7ed9ced98ab5bfXXXX&quot;</td>
-</tr>
 <tr>
 <td>first_name</td>
 <td>First name</td>
@@ -4072,16 +4069,16 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
     "api_key": "YOUR API KEY HERE",
-    "name": "new name ",
+    "name": "new name "
 
-}'</span> <span class="s2">"https://api.apollo.io/v1/accounts/ACOUNT_ID"</span>
+}'</span> <span class="s2">"https://api.apollo.io/v1/accounts/YOUR_ACCOUNT_ID"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/accounts/ACOUNT_ID"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/accounts/YOUR_ACCOUNT_ID"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
-    <span class="s">"name"</span><span class="p">:</span> <span class="s">"new name "</span><span class="p">,</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"new name "</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -4125,7 +4122,9 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
   </span><span class="nl">"labels"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><code>PUT https://api.apollo.io/v1/accounts</code></p>
+<p>This endpoint takes a <code>YOUR_ACCOUNT_ID</code> field at the end of the request URL to update an account</p>
+
+<p><code>PUT https://api.apollo.io/v1/accounts/YOUR_ACCOUNT_ID</code></p>
 
 <table><thead>
 <tr>
@@ -4133,10 +4132,6 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>id (Required)</td>
-<td>Account ID</td>
-</tr>
 <tr>
 <td>name</td>
 <td>The account&#39;s name</td>
