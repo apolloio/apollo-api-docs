@@ -144,7 +144,7 @@ curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d 
     "api_key": "YOUR API KEY HERE",
     "first_name": "Jon",
     "last_name": "Snow",
-    "email": “jon.snow@westeros.com”,
+    "email": "jon.snow@westeros.com",
     "title": "Lord Commander",
     "organization_name": "Westeros"
 }' "https://api.apollo.io/v1/contacts/YOUR_CONTACT_ID"
@@ -247,6 +247,8 @@ print(response.text)
 }
 ```
 
+This endpoint takes a `YOUR_CONTACT_ID` field at the end of the request URL to update a contact
+
 `PUT https://api.apollo.io/v1/contacts/YOUR_CONTACT_ID`
 
 <aside class="notice">
@@ -255,7 +257,6 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 
 Parameter | Description | Example
 --------- | ----------- | -----------
-id (Required)        | Contact ID  | "583f2f7ed9ced98ab5bfXXXX"
 first_name| First name | "Jon"
 last_name | Last name   | "Snow"
 organization_name | Company name   | "Westeros Inc."
