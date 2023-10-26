@@ -1,6 +1,6 @@
 # People API
 
-A person represents a person in Apollo's database.
+A person represents a person in Apollo's database..
 
 ## Search 
 
