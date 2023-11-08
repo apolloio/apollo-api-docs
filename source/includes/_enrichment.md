@@ -298,8 +298,6 @@ print(response.text)
                 "alexa_ranking": 3514,
                 "phone": "+1(202) 374-1312",
                 "linkedin_uid": "18511550",
-                "founded_year": 2015,
-                ...
             },
             "phone_numbers": [
                 {
@@ -1036,8 +1034,7 @@ print(response.text)
                 "updated_at": null,
                 "id": "651e57392998d400013ac5bf",
                 "key": "651e57392998d400013ac5bf"
-            },
-            ...
+            }
         ],
         "state": "California",
         "city": "San Francisco",
@@ -1157,8 +1154,7 @@ print(response.text)
                     "amount": "2.2M",
                     "currency": "$"
                 }
-            ],
-            ...
+            ]
         },
         "phone_numbers": [
             {
