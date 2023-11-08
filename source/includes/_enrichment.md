@@ -514,7 +514,7 @@ print(response.text)
 
 This endpoint enriches people information in bulk - the more information you pass in, the more likely we can find a match. 
 
-Up to 10 records can be enriched at the same time through this endpoint.  
+Up to 10 records can be enriched at the same time through this endpoint. It will deduct 1 email credit for each email found.
 
 ### Rate limits
 
@@ -894,8 +894,7 @@ print(response.text)
 
 This endpoint enriches organization information in bulk with info such as industry, company size, etc. based on the domain parameter passed in.
 
-Up to 10 records can be enriched at the same time through this endpoint.
-
+Up to 10 records can be enriched at the same time through this endpoint. Newer plans utilizing Export Credits will be deducting 1 export credit when calling this endpoint.
 
 ### Rate limits
 
@@ -1192,7 +1191,7 @@ print(response.text)
 }
 ```
 
-This endpoint enriches a person's information, the more information you pass in, the more likely we can find a match.
+This endpoint enriches a person's information, the more information you pass in, the more likely we can find a match. It will deduct 1 email credit for each email found.
 
 `POST https://api.apollo.io/v1/people/match`
 
@@ -1426,7 +1425,7 @@ print(response.text)
 }
 ```
 
-This endpoint enriches a company with info such as industry, company size, etc. based on the domain parameter passed in.
+This endpoint enriches a company with info such as industry, company size, etc. based on the domain parameter passed in. Newer plans utilizing Export Credits will be deducting 1 export credit when calling this endpoint.
 
 `GET https://api.apollo.io/v1/organizations/enrich`
 
