@@ -281,7 +281,7 @@ print(response.text)
 }
 ```
 
-This endpoint searches for people and does not return any new email information. To get email information, use the "enrich" endpoint. Newer plans utilizing Export Credits will be deducting 1 export credit when calling this endpoint.
+This endpoint searches for people and does not return any new email information. To get email information, use the "enrich" endpoint. Newer plans utilizing Export Credits will be deducting **1 export credit** when calling this endpoint.
 
 `POST https://api.apollo.io/v1/mixed_people/search`
 
