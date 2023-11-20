@@ -260,7 +260,7 @@ print(response.text)
 }
 ```
 
-This endpoint searches for organizations. 
+This endpoint searches for organizations. Newer plans utilizing Export Credits will be deducting **1 export credit** when calling this endpoint. 
 
 `POST https://api.apollo.io/api/v1/mixed_companies/search`
 
