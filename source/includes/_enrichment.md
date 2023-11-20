@@ -512,7 +512,7 @@ print(response.text)
 
 This endpoint enriches people information in bulk - the more information you pass in, the more likely we can find a match. 
 
-Up to 10 records can be enriched at the same time through this endpoint. It will deduct 1 email credit for each email found.
+Up to 10 records can be enriched at the same time through this endpoint.  This endpoint unveils the email addresses of new people. It will deduct 1 email credit for each verified email found and 1 export credit for teams utilizing Export Credits (in newer plans) for each non-empty record returned
 
 ### Rate limits
 
@@ -1187,7 +1187,7 @@ print(response.text)
 }
 ```
 
-This endpoint enriches a person's information, the more information you pass in, the more likely we can find a match. It will deduct 1 email credit for each email found.
+This endpoint enriches a person's information, the more information you pass in, the more likely we can find a match. This endpoint unveils the email addresses of new people. It will deduct 1 email credit for each verified email found and 1 export credit for teams utilizing Export Credits (in newer plans) for each non-empty record returned
 
 `POST https://api.apollo.io/v1/people/match`
 
