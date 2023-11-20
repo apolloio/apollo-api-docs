@@ -886,8 +886,6 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
                 </span><span class="nl">"alexa_ranking"</span><span class="p">:</span><span class="w"> </span><span class="mi">3514</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+1(202) 374-1312"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"linkedin_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18511550"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"founded_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2015</span><span class="p">,</span><span class="w">
-                </span><span class="err">...</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
@@ -1101,7 +1099,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 </span></code></pre></div>
 <p>This endpoint enriches people information in bulk - the more information you pass in, the more likely we can find a match. </p>
 
-<p>Up to 10 records can be enriched at the same time through this endpoint.  </p>
+<p>Up to 10 records can be enriched at the same time through this endpoint.  This endpoint unveils the email addresses of new people. It will deduct <strong>1 email credit</strong> for each verified email found and <strong>1 export credit</strong> for teams utilizing Export Credits (in newer plans) for each non-empty record returned</p>
 <h3 id='rate-limits'>Rate limits</h3>
 <p>Rate limits on this endpoint are 1/10th of what is available on the single enrichment endpoint.</p>
 
@@ -1521,7 +1519,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 </span></code></pre></div>
 <p>This endpoint enriches organization information in bulk with info such as industry, company size, etc. based on the domain parameter passed in.</p>
 
-<p>Up to 10 records can be enriched at the same time through this endpoint.</p>
+<p>Up to 10 records can be enriched at the same time through this endpoint. Newer plans utilizing Export Credits will be deducting <strong>1 export credit</strong> when calling this endpoint.</p>
 <h3 id='rate-limits-2'>Rate limits</h3>
 <p>Rate limits on this endpoint are 1/10th of what is available on the single enrichment endpoint. </p>
 
@@ -1662,8 +1660,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
                 </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"651e57392998d400013ac5bf"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"651e57392998d400013ac5bf"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="err">...</span><span class="w">
+            </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"California"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"San Francisco"</span><span class="p">,</span><span class="w">
@@ -1783,8 +1780,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
                     </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.2M"</span><span class="p">,</span><span class="w">
                     </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="err">...</span><span class="w">
+            </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -1816,7 +1812,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint enriches a person&#39;s information, the more information you pass in, the more likely we can find a match.</p>
+<p>This endpoint enriches a person&#39;s information, the more information you pass in, the more likely we can find a match. This endpoint unveils the email addresses of new people. It will deduct <strong>1 email credit</strong> for each verified email found and <strong>1 export credit</strong> for teams utilizing Export Credits (in newer plans) for each non-empty record returned</p>
 
 <p><code>POST https://api.apollo.io/v1/people/match</code></p>
 <h3 id='query-parameters'>Query parameters</h3>
@@ -2094,7 +2090,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint enriches a company with info such as industry, company size, etc. based on the domain parameter passed in.</p>
+<p>This endpoint enriches a company with info such as industry, company size, etc. based on the domain parameter passed in. Newer plans utilizing Export Credits will be deducting <strong>1 export credit</strong> when calling this endpoint.</p>
 
 <p><code>GET https://api.apollo.io/v1/organizations/enrich</code></p>
 <h3 id='query-parameters-2'>Query parameters</h3>
@@ -2386,7 +2382,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint searches for people and do not return any email information. To get email information, use the &quot;enrich&quot; endpoint.</p>
+<p>This endpoint searches for people and does not return any new email information. To get email information, use the &quot;enrich&quot; endpoint. Newer plans utilizing Export Credits will be deducting <strong>1 export credit</strong> when calling this endpoint.</p>
 
 <p><code>POST https://api.apollo.io/v1/mixed_people/search</code></p>
 <h3 id='query-parameters'>Query parameters</h3>
@@ -2714,7 +2710,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint searches for organizations. </p>
+<p>This endpoint searches for organizations. Newer plans utilizing Export Credits will be deducting <strong>1 export credit</strong> when calling this endpoint. </p>
 
 <p><code>POST https://api.apollo.io/api/v1/mixed_companies/search</code></p>
 <h3 id='query-parameters-2'>Query parameters</h3>
