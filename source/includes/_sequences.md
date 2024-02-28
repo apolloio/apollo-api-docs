@@ -137,6 +137,9 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "sequence_active_in_other_campaigns": false,
     "sequence_no_email": false,
     "sequence_finished_in_other_campaigns": false,
+    "sequence_unverified_email": false,
+    "sequence_job_change": false,
+    "sequence_same_company_in_same_campaign": false
     "user_id": "5cc77dXXXXXXXXXXXXXXXXXX",
 }' "https://api.apollo.io/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids"
 ```
@@ -154,7 +157,10 @@ data = {
     "send_email_from_email_account_id": "email_account_id",
     "sequence_active_in_other_campaigns": False,
     "sequence_no_email": False,
-    "sequence_finished_in_other_campaigns": False    
+    "sequence_finished_in_other_campaigns": False,
+    "sequence_unverified_email": False,
+    "sequence_job_change": False,
+    "sequence_same_company_in_same_campaign": False
 }
 
 headers = {
@@ -332,8 +338,11 @@ contact_ids (required)| An array of contact Ids | ["583f2f7ed9ced98ab5bfXXXX", "
 emailer_campaign_id (required)| The ID of sequence to deploy to | "583f2f7ed9ced98ab5bfXXXX"
 send_email_from_email_account_id (required)| ID of the email account to send email from, use the email_account/search api to figure out the list IDs | "583f2f7ed9ced98ab5bfXXXX"
 sequence_no_email | Whether to still sequence the contact if he/she does not have an email address | true or false (default false)
+sequence_unverified_email | Whether to still sequence the contact if he/she has unverified email | true or false (default false)
+sequence_job_change | Whether to still sequence the contact if he/she has recent job change (Note: Your plan should have job-change alerts for this to work) | true or false (default false)
 sequence_active_in_other_campaigns | Whether to still sequence the contact if he/she is active or paused in another sequence | true or false (default false)
 sequence_finished_in_other_campaigns  | Whether to still sequence the contact if he/she already finished another sequence | true or false (default false)
+sequence_same_company_in_same_campaign | Whether to still sequence contacts who works at the same company (Note: You should have this feature enabled for this to work) | true or false (default false)
 async | Whether process should be executed synchronously or asynchronously | true or false (default false)
 user_id | User who is performing this action | 5cc77dXXXXXXXXXXXXXXXXXX
 
