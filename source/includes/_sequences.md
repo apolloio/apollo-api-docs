@@ -139,8 +139,8 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "sequence_finished_in_other_campaigns": false,
     "sequence_unverified_email": false,
     "sequence_job_change": false,
-    "sequence_same_company_in_same_campaign": false
-    "user_id": "5cc77dXXXXXXXXXXXXXXXXXX",
+    "sequence_same_company_in_same_campaign": false,
+    "user_id": "5cc77dXXXXXXXXXXXXXXXXXX"
 }' "https://api.apollo.io/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids"
 ```
 
