@@ -4696,7 +4696,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     "sequence_active_in_other_campaigns": false,
     "sequence_no_email": false,
     "sequence_finished_in_other_campaigns": false,
-    "user_id": "5cc77dXXXXXXXXXXXXXXXXXX",
+    "sequence_unverified_email": false,
+    "sequence_job_change": false,
+    "sequence_same_company_in_same_campaign": false,
+    "user_id": "5cc77dXXXXXXXXXXXXXXXXXX"
 }'</span> <span class="s2">"https://api.apollo.io/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
@@ -4710,7 +4713,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     <span class="s">"send_email_from_email_account_id"</span><span class="p">:</span> <span class="s">"email_account_id"</span><span class="p">,</span>
     <span class="s">"sequence_active_in_other_campaigns"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
     <span class="s">"sequence_no_email"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
-    <span class="s">"sequence_finished_in_other_campaigns"</span><span class="p">:</span> <span class="bp">False</span>    
+    <span class="s">"sequence_finished_in_other_campaigns"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+    <span class="s">"sequence_unverified_email"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+    <span class="s">"sequence_job_change"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+    <span class="s">"sequence_same_company_in_same_campaign"</span><span class="p">:</span> <span class="bp">False</span>
 <span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -4911,6 +4917,16 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <td>true or false (default false)</td>
 </tr>
 <tr>
+<td>sequence_unverified_email</td>
+<td>Whether to still sequence the contact if he/she has unverified email</td>
+<td>true or false (default false)</td>
+</tr>
+<tr>
+<td>sequence_job_change</td>
+<td>Whether to still sequence the contact if he/she has recent job change (Note: Your plan should have job-change alerts for this to work)</td>
+<td>true or false (default false)</td>
+</tr>
+<tr>
 <td>sequence_active_in_other_campaigns</td>
 <td>Whether to still sequence the contact if he/she is active or paused in another sequence</td>
 <td>true or false (default false)</td>
@@ -4918,6 +4934,11 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <tr>
 <td>sequence_finished_in_other_campaigns</td>
 <td>Whether to still sequence the contact if he/she already finished another sequence</td>
+<td>true or false (default false)</td>
+</tr>
+<tr>
+<td>sequence_same_company_in_same_campaign</td>
+<td>Whether to still sequence contacts who works at the same company (Note: You should have this feature enabled for this to work)</td>
 <td>true or false (default false)</td>
 </tr>
 <tr>
