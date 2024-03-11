@@ -457,6 +457,8 @@ print(response.text)
 
 ```
 
+This endpoint is not accessible to teams on a free plan.
+
 `POST https://api.apollo.io/v1/contacts/search`
 
 Parameter | Description

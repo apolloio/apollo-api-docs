@@ -415,6 +415,8 @@ print(response.text)
 }
 ```
 
+This endpoint is not accessible to teams on a free plan.
+
 `GET https://api.apollo.io/v1/tasks/search`
 
 | Parameter                    | Description                                                     | Example        |

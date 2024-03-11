@@ -114,6 +114,7 @@ print(response.text)
     "num_fetch_result": null
 }
 ```
+This endpoint is not accessible to teams on a free plan.
 
 `POST https://api.apollo.io/v1/emailer_campaigns/search`
 
