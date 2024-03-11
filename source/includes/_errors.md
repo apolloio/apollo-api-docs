@@ -1,11 +1,12 @@
 # Errors
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+A valid API Key is required for processing API requests. 
 
-The Kittn API uses the following error codes:
+<!-- 
+The Kittn API uses the following error codes: -->
 
 
-Error Code | Meaning
+<!-- Error Code | Meaning
 ---------- | -------
 400 | Bad Request -- Your request sucks
 401 | Unauthorized -- Your API key is wrong
@@ -17,4 +18,23 @@ Error Code | Meaning
 418 | I'm a teapot
 429 | Too Many Requests -- You're requesting too many kittens! Slow down!
 500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
+503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later. -->
+
+
+> Sample response:
+
+```json
+{
+    "status": 401,
+    "message": "Invalid access credentials."
+}
+```
+
+
+`status`    | Example `message`                                               | Reason
+------------|  -------------------------------                                |----------
+401         |  Invalid access credentials.                                    | The API key is not valid
+403         |  This endpoint is only available to Apollo users on paid plans. | The API key is not authorized to perform the action
+429         | The maximum number of api calls allowed for `endpoint`  is `x` times per `t`. Please upgrade your plan from https://app.apollo.io/#/settings/plans/upgrade.   | The team with the API key has been rate-limited. We also send the usage in the headers in this
+
+

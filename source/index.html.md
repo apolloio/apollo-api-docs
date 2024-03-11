@@ -12,6 +12,7 @@ includes:
   - introduction
   - authentication
   - ratelimits
+  - errors
   - enrichment
   - people
   - organizations
