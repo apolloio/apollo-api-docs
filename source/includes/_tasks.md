@@ -415,6 +415,8 @@ print(response.text)
 }
 ```
 
+This feature is not accessible to Apollo users on free plans.
+
 `GET https://api.apollo.io/v1/tasks/search`
 
 | Parameter                    | Description                                                     | Example        |

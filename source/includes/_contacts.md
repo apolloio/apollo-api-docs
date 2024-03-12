@@ -457,6 +457,8 @@ print(response.text)
 
 ```
 
+This feature is not accessible to Apollo users on free plans.
+
 `POST https://api.apollo.io/v1/contacts/search`
 
 Parameter | Description
