@@ -260,7 +260,7 @@ print(response.text)
 }
 ```
 
-This endpoint searches for organizations. Newer plans utilizing Export Credits will be deducting **1 export credit** when calling this endpoint. This endpoint is not accessible to teams on a free plan.
+This endpoint searches for organizations. Newer plans utilizing Export Credits will be deducting **1 export credit** when calling this endpoint. This feature is not accessible to Apollo users on free plans.
 
 `POST https://api.apollo.io/api/v1/mixed_companies/search`
 

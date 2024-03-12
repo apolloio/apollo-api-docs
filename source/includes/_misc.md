@@ -249,7 +249,7 @@ print(response.text)
 }
 ```
 
-This endpoint is not accessible to teams on a free plan.
+This feature is not accessible to Apollo users on free plans.
 
 `GET https://api.apollo.io/v1/users/search`
 
