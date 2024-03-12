@@ -1,4 +1,4 @@
-w# Enrichment API
+# Enrichment API
 
 ## Bulk people enrichment
 
