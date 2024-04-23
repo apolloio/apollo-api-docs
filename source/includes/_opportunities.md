@@ -8,8 +8,7 @@ Opportunities can be associated with both companies and people in Apollo.
 > Sample request:
 
 ```shell
-curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-    "api_key": "YOUR API KEY HERE",
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" -d '{
     "owner_id":"5c10XXXXXXXXXXXXXXXXXXXX",
     "name":"Opportunity Name",
     "amount":"200",
@@ -25,7 +24,6 @@ import requests
 url = "https://app.apollo.io/api/v1/opportunities"
 
 data = {
-    "api_key": "YOUR API KEY HERE",
     "owner_id":"5c10XXXXXXXXXXXXXXXXXXXX",
     "name":"Opportunity Name",
     "amount":"200",
@@ -36,7 +34,8 @@ data = {
 
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
 response = requests.request("POST", url, headers=headers, json=data)
@@ -86,7 +85,7 @@ print(response.text)
 > Sample request:
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/opportunities/search?api_key=YOUR_API_KEY_HERE"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" "https://api.apollo.io/v1/opportunities/search"
 ```
 
 ```python
@@ -94,16 +93,13 @@ import requests
 
 url = "https://api.apollo.io/v1/opportunities/search"
 
-querystring = {
-    "api_key": "YOUR API KEY HERE"
-}
-
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
-response = requests.request("GET", url, headers=headers, params=querystring)
+response = requests.request("GET", url, headers=headers)
 
 print(response.text)
 ```
@@ -237,7 +233,7 @@ This endpoint returns all opportunities you have created.
 > Sample request:
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID?api_key=YOUR_API_KEY_HERE"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" "https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID"
 ```
 
 ```python
@@ -245,16 +241,13 @@ import requests
 
 url = "https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID"
 
-querystring = {
-    "api_key": "YOUR API KEY HERE"
-}
-
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
-response = requests.request("GET", url, headers=headers, params=querystring)
+response = requests.request("GET", url, headers=headers)
 
 print(response.text)
 ```
@@ -300,8 +293,7 @@ You can GET a list of all created opportunities from [opportunities/all](#get-al
 > Sample request:
 
 ```shell
-curl -X PATCH -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-    "api_key": "YOUR API KEY HERE",
+curl -X PATCH -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" -d '{
     "name": "Opportunity Name Updated",
 }' "https://api.apollo.io/v1/opportunities"
 ```
@@ -312,13 +304,13 @@ import requests
 url = "https://api.apollo.io/v1/opportunities"
 
 data = {
-    "api_key": "YOUR API KEY HERE",
     "name": "Opportunity Name Updated",
 }
 
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
 response = requests.patch(url, headers=headers, data=data)
