@@ -7,7 +7,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "api_key": "YOUR API KEY HERE",
     "reveal_personal_emails": true,
     "reveal_phone_number": true,
-    "webhook_url": "https://your_webhook_site"
+    "webhook_url": "https://your_webhook_site",
     "details": [
         {
             "first_name": "Tim",
@@ -39,7 +39,7 @@ data = {
     "api_key": "YOUR API KEY HERE",
     "reveal_personal_emails": True,
     "reveal_phone_number": True,
-    "webhook_url": "https://your_webhook_site"
+    "webhook_url": "https://your_webhook_site",
     "details": [
         {
             "first_name": "Tim",
