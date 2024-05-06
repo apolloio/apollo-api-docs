@@ -6,6 +6,8 @@
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "api_key": "YOUR API KEY HERE",
     "reveal_personal_emails": true,
+    "reveal_phone_number": true,
+    "webhook_url": "https://your_webhook_site"
     "details": [
         {
             "first_name": "Tim",
@@ -35,7 +37,9 @@ url = "https://api.apollo.io/api/v1/people/bulk_match"
 
 data = {
     "api_key": "YOUR API KEY HERE",
-    "reveal_personal_emails": true,
+    "reveal_personal_emails": True,
+    "reveal_phone_number": True,
+    "webhook_url": "https://your_webhook_site"
     "details": [
         {
             "first_name": "Tim",
@@ -43,7 +47,7 @@ data = {
             "domain": "apollo.io",
             "hashed_email": "8d935115b9ff4489f2d1f9249503cadf",
             "email": "tim@apollo.io",
-            "organization_name": "Apollo"
+            "organization_name": "Apollo",
             "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010"
         },
         {
@@ -51,7 +55,7 @@ data = {
             "last_name": "Chung",
             "email": "roy@apollo.io",
             "hashed_email": "97817c0c49994eb500ad0a5e7e2d8aed51977b26424d508f66e4e8887746a152",
-            "organization_name": "Apollo"
+            "organization_name": "Apollo",
             "linkedin_url": "http://www.linkedin.com/in/royychung"
         }
     ]
@@ -921,8 +925,11 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "email": "name@domain.io",
     "hashed_email": "8d935115b9ff4489f2d1f9249503cadf",
     "domain": "apollo.io",
+    "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010",
     "reveal_personal_emails": true,
-    "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010"
+    "reveal_phone_number": true,
+    "webhook_url": "https://your_webhook_site"
+    
 }' "https://api.apollo.io/v1/people/match"
 ```
 
@@ -940,8 +947,10 @@ data = {
     "email": "name@domain.io",
     "hashed_email": "8d935115b9ff4489f2d1f9249503cadf",
     "domain": "apollo.io",
-    "reveal_personal_emails": true,
-    "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010"
+    "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010",
+    "reveal_personal_emails": True,
+    "reveal_phone_number": True,
+    "webhook_url": "https://your_webhook_site",
 }
 
 headers = {
