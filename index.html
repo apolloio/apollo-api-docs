@@ -489,21 +489,18 @@ Note: Users of curl.exe on Windows OS must escape all double quotes for requests
 <p>Sample request:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/auth/health?api_key=YOUR_API_KEY_HERE"</span>
+curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="s2">"https://api.apollo.io/v1/auth/health"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/auth/health"</span>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span>
-<span class="p">}</span>
-
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
@@ -595,8 +592,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <td>50</td>
 </tr>
 </tbody></table>
-<h1 id='enrichment-api'>Enrichment API</h1><h2 id='bulk-people-enrichment'>Bulk people enrichment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<h1 id='enrichment-api'>Enrichment API</h1><h2 id='bulk-people-enrichment'>Bulk people enrichment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "reveal_personal_emails": true,
     "details": [
         {
@@ -623,7 +619,6 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/api/v1/people/bulk_match"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"reveal_personal_emails"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
     <span class="s">"details"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -648,7 +643,8 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -1173,8 +1169,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <td>&quot;https://example.com/hook&quot;</td>
 </tr>
 </tbody></table>
-<h2 id='bulk-organization-enrichment'>Bulk organization enrichment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<h2 id='bulk-organization-enrichment'>Bulk organization enrichment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "domains": [
         "apollo.io",
         "outreach.com",
@@ -1186,7 +1181,6 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/api/v1/organizations/bulk_enrich"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"domains"</span><span class="p">:</span> <span class="p">[</span>
         <span class="s">"apollo.io"</span><span class="p">,</span>
         <span class="s">"outreach.com"</span><span class="p">,</span>
@@ -1196,7 +1190,8 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -1542,8 +1537,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "id": "583f2f7ed9ced98ab5bfXXXX",
     "first_name": "Tim",
     "last_name": "Zheng",
@@ -1559,7 +1553,6 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/people/match"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"id"</span><span class="p">:</span> <span class="s">"583f2f7ed9ced98ab5bfXXXX"</span><span class="p">,</span>
     <span class="s">"first_name"</span><span class="p">:</span> <span class="s">"Tim"</span><span class="p">,</span>
     <span class="s">"last_name"</span><span class="p">:</span> <span class="s">"Zheng"</span><span class="p">,</span>
@@ -1573,7 +1566,8 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -1888,19 +1882,19 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/organizations/enrich?api_key=YOUR_API_KEY_HERE&amp;domain=apollo.io"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="s2">"https://api.apollo.io/v1/organizations/enrich?domain=apollo.io"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/organizations/enrich"</span>
 
 <span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"domain"</span><span class="p">:</span> <span class="s">"apollo.io"</span>
 <span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
@@ -2113,8 +2107,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "q_organization_domains": "apollo.io\ngoogle.com",
     "page" : 1,
     "per_page": 10,
@@ -2128,7 +2121,6 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/mixed_people/search"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"q_organization_domains"</span><span class="p">:</span> <span class="s">"apollo.io</span><span class="se">\n</span><span class="s">google.com"</span><span class="p">,</span>
     <span class="s">"page"</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">"per_page"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
@@ -2140,7 +2132,8 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -2463,21 +2456,18 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/organizations/ORGANIZATION_ID/job_postings?api_key=YOUR_API_KEY_HERE"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="s2">"https://api.apollo.io/v1/organizations/ORGANIZATION_ID/job_postings"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/organizations/ORGANIZATION_ID/job_postings"</span>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span>
-<span class="p">}</span>
-
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
@@ -2540,8 +2530,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-  "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
   "page": 1,
   "per_page": 10,
   "organization_num_employees_ranges": ["1,100", "1,1000"],
@@ -2554,7 +2543,6 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/api/v1/mixed_companies/search"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"page"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
     <span class="s">"per_page"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>  
     <span class="s">"organization_num_employees_ranges"</span><span class="p">:[</span><span class="s">"1,100"</span><span class="p">,</span> <span class="s">"1,1000"</span><span class="p">],</span>
@@ -2565,7 +2553,8 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -2777,8 +2766,7 @@ Opportunities can be associated with both companies and people in Apollo.</p>
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "owner_id":"5c10XXXXXXXXXXXXXXXXXXXX",
     "name":"Opportunity Name",
     "amount":"200",
@@ -2791,7 +2779,6 @@ Opportunities can be associated with both companies and people in Apollo.</p>
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.apollo.io/api/v1/opportunities"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"owner_id"</span><span class="p">:</span><span class="s">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span>
     <span class="s">"name"</span><span class="p">:</span><span class="s">"Opportunity Name"</span><span class="p">,</span>
     <span class="s">"amount"</span><span class="p">:</span><span class="s">"200"</span><span class="p">,</span>
@@ -2802,7 +2789,8 @@ Opportunities can be associated with both companies and people in Apollo.</p>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -2871,21 +2859,18 @@ Opportunities can be associated with both companies and people in Apollo.</p>
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/opportunities/search?api_key=YOUR_API_KEY_HERE"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="s2">"https://api.apollo.io/v1/opportunities/search"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/opportunities/search"</span>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span>
-<span class="p">}</span>
-
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
@@ -3015,21 +3000,18 @@ Opportunities can be associated with both companies and people in Apollo.</p>
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID?api_key=YOUR_API_KEY_HERE"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="s2">"https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/opportunities/REPLACE_WITH_OPPORTUNITY_ID"</span>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span>
-<span class="p">}</span>
-
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
@@ -3071,8 +3053,7 @@ Opportunities can be associated with both companies and people in Apollo.</p>
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PATCH <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "name": "Opportunity Name Updated",
 }'</span> <span class="s2">"https://api.apollo.io/v1/opportunities"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
@@ -3080,13 +3061,13 @@ Opportunities can be associated with both companies and people in Apollo.</p>
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/opportunities"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"name"</span><span class="p">:</span> <span class="s">"Opportunity Name Updated"</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -3138,8 +3119,7 @@ Only supplied fields will be updated. All other fields will be left untouched.
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "first_name": "Jon",
     "last_name": "Snow",
     "title": "Lord Commander",
@@ -3150,7 +3130,6 @@ Only supplied fields will be updated. All other fields will be left untouched.
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/contacts"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"first_name"</span><span class="p">:</span> <span class="s">"Jonny"</span><span class="p">,</span>
     <span class="s">"last_name"</span><span class="p">:</span> <span class="s">"Snow"</span><span class="p">,</span>
     <span class="s">"title"</span><span class="p">:</span> <span class="s">"Lord Commander"</span><span class="p">,</span>
@@ -3159,7 +3138,8 @@ Only supplied fields will be updated. All other fields will be left untouched.
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -3328,8 +3308,7 @@ Apollo does not run any deduplication during <code>CREATE</code>. If your record
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "first_name": "Jon",
     "last_name": "Snow",
     "email": "jon.snow@westeros.com",
@@ -3341,7 +3320,6 @@ Apollo does not run any deduplication during <code>CREATE</code>. If your record
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/contacts/YOUR_CONTACT_ID"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"first_name"</span><span class="p">:</span> <span class="s">"Jon"</span><span class="p">,</span>
     <span class="s">"last_name"</span><span class="p">:</span> <span class="s">"Snow"</span><span class="p">,</span>
     <span class="s">"email"</span><span class="p">:</span> <span class="s">"jon.snow@westeros.com"</span><span class="p">,</span>
@@ -3351,7 +3329,8 @@ Apollo does not run any deduplication during <code>CREATE</code>. If your record
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"PUT"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -3515,8 +3494,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "q_keywords": "Tim Zheng, CEO, Apollo",
     "sort_by_field": "contact_last_activity_date",
     "sort_ascending": false
@@ -3526,7 +3504,6 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/contacts/search"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"q_keywords"</span><span class="p">:</span> <span class="s">"Tim Zheng, CEO, Apollo"</span><span class="p">,</span>
     <span class="s">"sort_by_field"</span><span class="p">:</span> <span class="s">"contact_last_activity_date"</span><span class="p">,</span>
     <span class="s">"sort_ascending"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
@@ -3534,7 +3511,8 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -3725,21 +3703,18 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/contact_stages?api_key=YOUR_API_KEY_HERE"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="s2">"https://api.apollo.io/v1/contact_stages"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/contact_stages"</span>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span>
-<span class="p">}</span>
-
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
@@ -3837,8 +3812,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "contact_ids": ["contact_id1", "contact_id2"],
     "contact_stage_id": "stage_id"
 }'</span> <span class="s2">"https://api.apollo.io/v1/contacts/update_stages"</span>
@@ -3847,14 +3821,14 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/contacts/update_stages"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"contact_ids"</span><span class="p">:</span> <span class="p">[</span><span class="s">"contact_id1"</span><span class="p">,</span> <span class="s">"contact_id2"</span><span class="p">],</span>
     <span class="s">"contact_stage_id"</span><span class="p">:</span> <span class="s">"stage_id"</span>
 <span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -3943,8 +3917,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "contact_ids": ["contact_id1", "contact_id2"],
     "owner_id": "owner_id"
 }'</span> <span class="s2">"https://api.apollo.io/v1/contacts/update_owners"</span>
@@ -3953,14 +3926,14 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/contacts/update_owners"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"contact_ids"</span><span class="p">:</span> <span class="p">[</span><span class="s">"contact_id1"</span><span class="p">,</span> <span class="s">"contact_id2"</span><span class="p">],</span>
     <span class="s">"owner_id"</span><span class="p">:</span> <span class="s">"owner_id"</span>
 <span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -4051,8 +4024,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "name": "Google",
     "domain": "google.com",
     "phone_number": "1-866-246-6453",
@@ -4063,7 +4035,6 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/accounts"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"name"</span><span class="p">:</span> <span class="s">"Google"</span><span class="p">,</span>
     <span class="s">"domain"</span><span class="p">:</span> <span class="s">"google.com"</span><span class="p">,</span>
     <span class="s">"phone_number"</span><span class="p">:</span> <span class="s">"1-866-246-6453"</span><span class="p">,</span>
@@ -4072,7 +4043,8 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -4143,23 +4115,21 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
-    "name": "new name "
-
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
+    "name": "new name"
 }'</span> <span class="s2">"https://api.apollo.io/v1/accounts/YOUR_ACCOUNT_ID"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/accounts/YOUR_ACCOUNT_ID"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
-  <span class="s">"name"</span><span class="p">:</span> <span class="s">"new name "</span><span class="p">,</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"new name"</span>
 <span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"PUT"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -4225,8 +4195,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "q_organization_name": "Google",
     "sort_by_field": "account_last_activity_date",
     "sort_ascending": false
@@ -4236,7 +4205,6 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/accounts/search"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"q_organization_name"</span><span class="p">:</span> <span class="s">"Google"</span><span class="p">,</span>
     <span class="s">"sort_by_field"</span><span class="p">:</span> <span class="s">"account_last_activity_date"</span><span class="p">,</span>
     <span class="s">"sort_ascending"</span><span class="p">:</span> <span class="bp">False</span>
@@ -4244,7 +4212,8 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -4377,21 +4346,18 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/account_stages?api_key=YOUR_API_KEY_HERE"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="s2">"https://api.apollo.io/v1/account_stages"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/account_stages"</span>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span>
-<span class="p">}</span>
-
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
@@ -4453,8 +4419,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "account_ids": ["account_id1", "account_id2"],
     "account_stage_id": "stage_id"
 }'</span> <span class="s2">"https://api.apollo.io/v1/accounts/bulk_update"</span>
@@ -4463,14 +4428,14 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/accounts/bulk_update"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"account_ids"</span><span class="p">:</span> <span class="p">[</span><span class="s">"account_id1"</span><span class="p">,</span> <span class="s">"account_id2"</span><span class="p">],</span>
     <span class="s">"account_stage_id"</span><span class="p">:</span> <span class="s">"stage_id"</span>
 <span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -4510,8 +4475,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "account_ids": ["account_id1", "account_id2"],
     "owner_id": "owner_id"
 }'</span> <span class="s2">"https://api.apollo.io/v1/accounts/update_owners"</span>
@@ -4520,14 +4484,14 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/accounts/update_owners"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"account_ids"</span><span class="p">:</span> <span class="p">[</span><span class="s">"account_id1"</span><span class="p">,</span> <span class="s">"account_id2"</span><span class="p">],</span>
     <span class="s">"owner_id"</span><span class="p">:</span> <span class="s">"owner_id"</span>
 <span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -4569,8 +4533,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "q_name": "Sequence Name"
 }'</span> <span class="s2">"https://api.apollo.io/v1/emailer_campaigns/search"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
@@ -4578,13 +4541,13 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/emailer_campaigns/search"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"q_name"</span><span class="p">:</span> <span class="s">"Sequence Name"</span>
 <span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -4693,8 +4656,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "async": false,
     "contact_ids": ["contact id 1", "contact id 2"],
     "emailer_campaign_id": REPLACE_WITH_SEQUENCE_ID,
@@ -4712,7 +4674,6 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/emailer_campaigns/REPLACE_WITH_SEQUENCE_ID/add_contact_ids"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"async"</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
     <span class="s">"contact_ids"</span><span class="p">:</span> <span class="p">[</span><span class="s">"contact id 1"</span><span class="p">,</span> <span class="s">"contact id 2"</span><span class="p">],</span>
     <span class="s">"emailer_campaign_id"</span><span class="p">:</span> <span class="n">REPLACE_WITH_SEQUENCE_ID</span><span class="p">,</span>
@@ -4727,7 +4688,8 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -4962,8 +4924,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "emailer_campaign_ids": ["contact id 1", "contact id 2"],
     "contact_ids": ["contact id 1", "contact id 2"],
     "mode": "remove",
@@ -4974,7 +4935,6 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/emailer_campaigns/remove_or_stop_contact_ids"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"emailer_campaign_ids"</span><span class="p">:</span> <span class="p">[</span><span class="s">"contact id 1"</span><span class="p">,</span> <span class="s">"contact id 2"</span><span class="p">],</span>
     <span class="s">"contact_ids"</span><span class="p">:</span> <span class="p">[</span><span class="s">"contact id 1"</span><span class="p">,</span> <span class="s">"contact id 2"</span><span class="p">],</span>
     <span class="s">"mode"</span><span class="p">:</span> <span class="s">"remove"</span><span class="p">,</span>
@@ -4983,7 +4943,8 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -5095,7 +5056,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "priority": "medium",
     "user_id": "5c10XXXXXXXXXXXXXXXXXXXX",
     "due_at": "2020-12-21T16:16:48.311Z",
@@ -5112,7 +5073,6 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/tasks/bulk_create"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"priority"</span><span class="p">:</span> <span class="s">"medium"</span><span class="p">,</span>
     <span class="s">"user_id"</span><span class="p">:</span> <span class="s">"5c10XXXXXXXXXXXXXXXXXXXX"</span><span class="p">,</span>
     <span class="s">"due_at"</span><span class="p">:</span> <span class="s">"2020-12-21T16:16:48.311Z"</span><span class="p">,</span>
@@ -5127,7 +5087,8 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
@@ -5190,8 +5151,7 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-d</span> <span class="s1">'{
-    "api_key": "YOUR API KEY HERE",
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "sort_by_field": "task_created_at",
     "per_page": 200,
     "open_factor_names": [
@@ -5203,7 +5163,6 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/tasks/search"</span>
 
 <span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span><span class="p">,</span>
     <span class="s">"sort_by_field"</span><span class="p">:</span> <span class="s">"task_created_at"</span><span class="p">,</span>
     <span class="s">"open_factor_names"</span><span class="p">:</span> <span class="p">[</span>
         <span class="s">"task_types"</span>
@@ -5212,7 +5171,8 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
@@ -5546,21 +5506,18 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/users/search?api_key=YOUR_API_KEY_HERE"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="s2">"https://api.apollo.io/v1/users/search"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/users/search"</span>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span>
-<span class="p">}</span>
-
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
@@ -5792,21 +5749,18 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/email_accounts?api_key=YOUR_API_KEY_HERE"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="s2">"https://api.apollo.io/v1/email_accounts"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/email_accounts"</span>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span>
-<span class="p">}</span>
-
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
@@ -5845,21 +5799,18 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/labels?api_key=YOUR_API_KEY_HERE"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="s2">"https://api.apollo.io/v1/labels"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/labels"</span>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span>
-<span class="p">}</span>
-
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
@@ -5910,21 +5861,18 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/typed_custom_fields?api_key=YOUR_API_KEY_HERE"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="s2">"https://api.apollo.io/v1/typed_custom_fields"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/typed_custom_fields"</span>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span>
-<span class="p">}</span>
-
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
@@ -6116,21 +6064,18 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://api.apollo.io/v1/opportunity_stages?api_key=YOUR_API_KEY_HERE"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="s2">"https://api.apollo.io/v1/opportunity_stages"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/opportunity_stages"</span>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"api_key"</span><span class="p">:</span> <span class="s">"YOUR API KEY HERE"</span>
-<span class="p">}</span>
-
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">'no-cache'</span><span class="p">,</span>
-    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+    <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
