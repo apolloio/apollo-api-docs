@@ -5,7 +5,7 @@
 > Sample request:
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/users/search?api_key=YOUR_API_KEY_HERE"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" "https://api.apollo.io/v1/users/search"
 ```
 
 ```python
@@ -13,16 +13,13 @@ import requests
 
 url = "https://api.apollo.io/v1/users/search"
 
-querystring = {
-    "api_key": "YOUR API KEY HERE"
-}
-
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
-response = requests.request("GET", url, headers=headers, params=querystring)
+response = requests.request("GET", url, headers=headers)
 
 print(response.text)
 ```
@@ -260,7 +257,7 @@ This feature is not accessible to Apollo users on free plans.
 > Sample request:
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/email_accounts?api_key=YOUR_API_KEY_HERE"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" "https://api.apollo.io/v1/email_accounts"
 ```
 
 ```python
@@ -268,16 +265,13 @@ import requests
 
 url = "https://api.apollo.io/v1/email_accounts"
 
-querystring = {
-    "api_key": "YOUR API KEY HERE"
-}
-
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
-response = requests.request("GET", url, headers=headers, params=querystring)
+response = requests.request("GET", url, headers=headers)
 
 print(response.text)
 ```
@@ -321,7 +315,7 @@ print(response.text)
 > Sample request:
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/labels?api_key=YOUR_API_KEY_HERE"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" "https://api.apollo.io/v1/labels"
 ```
 
 ```python
@@ -329,16 +323,13 @@ import requests
 
 url = "https://api.apollo.io/v1/labels"
 
-querystring = {
-    "api_key": "YOUR API KEY HERE"
-}
-
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
-response = requests.request("GET", url, headers=headers, params=querystring)
+response = requests.request("GET", url, headers=headers)
 
 print(response.text)
 ```
@@ -394,7 +385,7 @@ print(response.text)
 > Sample request:
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/typed_custom_fields?api_key=YOUR_API_KEY_HERE"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" "https://api.apollo.io/v1/typed_custom_fields"
 ```
 
 ```python
@@ -402,16 +393,13 @@ import requests
 
 url = "https://api.apollo.io/v1/typed_custom_fields"
 
-querystring = {
-    "api_key": "YOUR API KEY HERE"
-}
-
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
-response = requests.request("GET", url, headers=headers, params=querystring)
+response = requests.request("GET", url, headers=headers)
 
 print(response.text)
 ```
@@ -608,7 +596,7 @@ print(response.text)
 > Sample request:
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/opportunity_stages?api_key=YOUR_API_KEY_HERE"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" "https://api.apollo.io/v1/opportunity_stages"
 ```
 
 ```python
@@ -616,16 +604,13 @@ import requests
 
 url = "https://api.apollo.io/v1/opportunity_stages"
 
-querystring = {
-    "api_key": "YOUR API KEY HERE"
-}
-
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
-response = requests.request("GET", url, headers=headers, params=querystring)
+response = requests.request("GET", url, headers=headers)
 
 print(response.text)
 ```

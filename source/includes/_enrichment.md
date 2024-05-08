@@ -3,8 +3,7 @@
 ## Bulk people enrichment
 
 ```shell
-curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-    "api_key": "YOUR API KEY HERE",
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" -d '{
     "reveal_personal_emails": true,
     "details": [
         {
@@ -34,7 +33,6 @@ import requests
 url = "https://api.apollo.io/api/v1/people/bulk_match"
 
 data = {
-    "api_key": "YOUR API KEY HERE",
     "reveal_personal_emails": true,
     "details": [
         {
@@ -59,7 +57,8 @@ data = {
 
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
 response = requests.request("POST", url, headers=headers, json=data)
@@ -541,8 +540,7 @@ webhook_url (optional) | Webhook URL for sending 'reveal_phone_number' response 
 ## Bulk organization enrichment
 
 ```shell
-curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-    "api_key": "YOUR API KEY HERE",
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" -d '{
     "domains": [
         "apollo.io",
         "outreach.com",
@@ -557,7 +555,6 @@ import requests
 url = "https://api.apollo.io/api/v1/organizations/bulk_enrich"
 
 data = {
-    "api_key": "YOUR API KEY HERE",
     "domains": [
         "apollo.io",
         "outreach.com",
@@ -567,7 +564,8 @@ data = {
 
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
 response = requests.request("POST", url, headers=headers, json=data)
@@ -912,8 +910,7 @@ Rate limits on this endpoint are 1/10th of what is available on the single enric
 > Sample request:
 
 ```shell
-curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-    "api_key": "YOUR API KEY HERE",
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" -d '{
     "id": "583f2f7ed9ced98ab5bfXXXX",
     "first_name": "Tim",
     "last_name": "Zheng",
@@ -932,7 +929,6 @@ import requests
 url = "https://api.apollo.io/v1/people/match"
 
 data = {
-    "api_key": "YOUR API KEY HERE",
     "id": "583f2f7ed9ced98ab5bfXXXX",
     "first_name": "Tim",
     "last_name": "Zheng",
@@ -946,7 +942,8 @@ data = {
 
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
 response = requests.request("POST", url, headers=headers, json=data)
@@ -1214,7 +1211,7 @@ webhook_url (optional) | Webhook URL for sending 'reveal_phone_number' response 
 > Sample request:
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/organizations/enrich?api_key=YOUR_API_KEY_HERE&domain=apollo.io"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" "https://api.apollo.io/v1/organizations/enrich?domain=apollo.io"
 ```
 
 ```python
@@ -1223,13 +1220,13 @@ import requests
 url = "https://api.apollo.io/v1/organizations/enrich"
 
 querystring = {
-    "api_key": "YOUR API KEY HERE",
     "domain": "apollo.io"
 }
 
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
 response = requests.request("GET", url, headers=headers, params=querystring)

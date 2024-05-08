@@ -7,7 +7,7 @@ An organization represents a company in Apollo's database.
 > Sample request:
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "https://api.apollo.io/v1/organizations/ORGANIZATION_ID/job_postings?api_key=YOUR_API_KEY_HERE"
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" "https://api.apollo.io/v1/organizations/ORGANIZATION_ID/job_postings"
 ```
 
 ```python
@@ -15,16 +15,13 @@ import requests
 
 url = "https://api.apollo.io/v1/organizations/ORGANIZATION_ID/job_postings"
 
-querystring = {
-    "api_key": "YOUR API KEY HERE"
-}
-
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
-response = requests.request("GET", url, headers=headers, params=querystring)
+response = requests.request("GET", url, headers=headers)
 
 print(response.text)
 ```
@@ -85,8 +82,7 @@ Get a list of active job postings for a company.
 > Sample request:
 
 ```shell
-curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-  "api_key": "YOUR API KEY HERE",
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" -d '{
   "page": 1,
   "per_page": 10,
   "organization_num_employees_ranges": ["1,100", "1,1000"],
@@ -102,7 +98,6 @@ import requests
 url = "https://api.apollo.io/api/v1/mixed_companies/search"
 
 data = {
-    "api_key": "YOUR API KEY HERE",
     "page":1,
     "per_page":10,  
     "organization_num_employees_ranges":["1,100", "1,1000"],
@@ -113,7 +108,8 @@ data = {
 
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
 response = requests.request("POST", url, headers=headers, json=data)

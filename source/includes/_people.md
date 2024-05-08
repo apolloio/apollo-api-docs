@@ -7,8 +7,7 @@ A person represents a person in Apollo's database.
 > Sample request:
 
 ```shell
-curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-    "api_key": "YOUR API KEY HERE",
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" -d '{
     "q_organization_domains": "apollo.io\ngoogle.com",
     "page" : 1,
     "per_page": 10,
@@ -25,7 +24,6 @@ import requests
 url = "https://api.apollo.io/v1/mixed_people/search"
 
 data = {
-    "api_key": "YOUR API KEY HERE",
     "q_organization_domains": "apollo.io\ngoogle.com",
     "page" : 1,
     "per_page": 10,
@@ -37,7 +35,8 @@ data = {
 
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
 response = requests.request("POST", url, headers=headers, json=data)
