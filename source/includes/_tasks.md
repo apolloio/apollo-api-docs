@@ -7,7 +7,7 @@ A task is an action to be performed on a contact, The task can be assigned to an
 > Sample request:
 
 ```shell
-curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" -d '{
     "priority": "medium",
     "user_id": "5c10XXXXXXXXXXXXXXXXXXXX",
     "due_at": "2020-12-21T16:16:48.311Z",
@@ -27,7 +27,6 @@ import requests
 url = "https://api.apollo.io/v1/tasks/bulk_create"
 
 data = {
-    "api_key": "YOUR API KEY HERE",
     "priority": "medium",
     "user_id": "5c10XXXXXXXXXXXXXXXXXXXX",
     "due_at": "2020-12-21T16:16:48.311Z",
@@ -42,7 +41,8 @@ data = {
 
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
 response = requests.request("POST", url, headers=headers, json=data)
@@ -75,8 +75,7 @@ print(response.text)
 > Sample request:
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-    "api_key": "YOUR API KEY HERE",
+curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" -d '{
     "sort_by_field": "task_created_at",
     "per_page": 200,
     "open_factor_names": [
@@ -91,7 +90,6 @@ import requests
 url = "https://api.apollo.io/v1/tasks/search"
 
 querystring = {
-    "api_key": "YOUR API KEY HERE",
     "sort_by_field": "task_created_at",
     "open_factor_names": [
         "task_types"
@@ -100,7 +98,8 @@ querystring = {
 
 headers = {
     'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'X-Api-Key': 'YOUR API KEY HERE'
 }
 
 response = requests.request("GET", url, headers=headers, params=querystring)
