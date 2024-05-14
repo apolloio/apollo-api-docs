@@ -950,7 +950,7 @@ data = {
     "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010",
     "reveal_personal_emails": True,
     "reveal_phone_number": True,
-    "webhook_url": "https://your_webhook_site",
+    "webhook_url": "https://your_webhook_site"
 }
 
 headers = {
