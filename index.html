@@ -594,6 +594,8 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 </tbody></table>
 <h1 id='enrichment-api'>Enrichment API</h1><h2 id='bulk-people-enrichment'>Bulk people enrichment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "reveal_personal_emails": true,
+    "reveal_phone_number": true,
+    "webhook_url": "https://your_webhook_site",
     "details": [
         {
             "first_name": "Tim",
@@ -619,7 +621,9 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/api/v1/people/bulk_match"</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"reveal_personal_emails"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">"reveal_personal_emails"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="s">"reveal_phone_number"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="s">"webhook_url"</span><span class="p">:</span> <span class="s">"https://your_webhook_site"</span><span class="p">,</span>
     <span class="s">"details"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="s">"first_name"</span><span class="p">:</span> <span class="s">"Tim"</span><span class="p">,</span>
@@ -627,7 +631,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
             <span class="s">"domain"</span><span class="p">:</span> <span class="s">"apollo.io"</span><span class="p">,</span>
             <span class="s">"hashed_email"</span><span class="p">:</span> <span class="s">"8d935115b9ff4489f2d1f9249503cadf"</span><span class="p">,</span>
             <span class="s">"email"</span><span class="p">:</span> <span class="s">"tim@apollo.io"</span><span class="p">,</span>
-            <span class="s">"organization_name"</span><span class="p">:</span> <span class="s">"Apollo"</span>
+            <span class="s">"organization_name"</span><span class="p">:</span> <span class="s">"Apollo"</span><span class="p">,</span>
             <span class="s">"linkedin_url"</span><span class="p">:</span> <span class="s">"http://www.linkedin.com/in/tim-zheng-677ba010"</span>
         <span class="p">},</span>
         <span class="p">{</span>
@@ -635,7 +639,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
             <span class="s">"last_name"</span><span class="p">:</span> <span class="s">"Chung"</span><span class="p">,</span>
             <span class="s">"email"</span><span class="p">:</span> <span class="s">"roy@apollo.io"</span><span class="p">,</span>
             <span class="s">"hashed_email"</span><span class="p">:</span> <span class="s">"97817c0c49994eb500ad0a5e7e2d8aed51977b26424d508f66e4e8887746a152"</span><span class="p">,</span>
-            <span class="s">"organization_name"</span><span class="p">:</span> <span class="s">"Apollo"</span>
+            <span class="s">"organization_name"</span><span class="p">:</span> <span class="s">"Apollo"</span><span class="p">,</span>
             <span class="s">"linkedin_url"</span><span class="p">:</span> <span class="s">"http://www.linkedin.com/in/royychung"</span>
         <span class="p">}</span>
     <span class="p">]</span>
@@ -1545,8 +1549,11 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
     "email": "name@domain.io",
     "hashed_email": "8d935115b9ff4489f2d1f9249503cadf",
     "domain": "apollo.io",
+    "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010",
     "reveal_personal_emails": true,
-    "linkedin_url": "http://www.linkedin.com/in/tim-zheng-677ba010"
+    "reveal_phone_number": true,
+    "webhook_url": "https://your_webhook_site"
+
 }'</span> <span class="s2">"https://api.apollo.io/v1/people/match"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
@@ -1560,8 +1567,10 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
     <span class="s">"email"</span><span class="p">:</span> <span class="s">"name@domain.io"</span><span class="p">,</span>
     <span class="s">"hashed_email"</span><span class="p">:</span> <span class="s">"8d935115b9ff4489f2d1f9249503cadf"</span><span class="p">,</span>
     <span class="s">"domain"</span><span class="p">:</span> <span class="s">"apollo.io"</span><span class="p">,</span>
-    <span class="s">"reveal_personal_emails"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-    <span class="s">"linkedin_url"</span><span class="p">:</span> <span class="s">"http://www.linkedin.com/in/tim-zheng-677ba010"</span>
+    <span class="s">"linkedin_url"</span><span class="p">:</span> <span class="s">"http://www.linkedin.com/in/tim-zheng-677ba010"</span><span class="p">,</span>
+    <span class="s">"reveal_personal_emails"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="s">"reveal_phone_number"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="s">"webhook_url"</span><span class="p">:</span> <span class="s">"https://your_webhook_site"</span>
 <span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
