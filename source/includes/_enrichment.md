@@ -515,7 +515,7 @@ print(response.text)
 
 This endpoint enriches people information in bulk - the more information you pass in, the more likely we can find a match. 
 
-Up to 10 records can be enriched at the same time through this endpoint.  This endpoint unveils the email addresses of new people. It will deduct **1 email credit** for each verified email found and **1 export credit** for teams utilizing Export Credits (in newer plans) for each non-empty record returned
+Up to 10 records can be enriched at the same time through this endpoint.  This endpoint unveils the email addresses of new people. It will deduct **1 email credit** for each verified email found and **1 export credit** for teams utilizing Export Credits (in newer plans) for each non-empty record returned.  Note that by default, this endpoint will not return personal emails or phone numbers. Phone number fields incur additional credit charges.
 
 ### Rate limits
 
@@ -534,11 +534,11 @@ email (optional) | The person's email | example@domain.com
 hashed_email (optional) | The person's md5 or sha256 hashed email | 8d935115b9ff4489f2d1f9249503cadf OR 97817c0c49994eb500ad0a5e7e2d8aed 51977b26424d508f66e4e8887746a152
 organization_name (optional) | The person's company name | Apollo Inc.
 domain (optional) | The person's company domain | apollo.io
-id (optional) |  The person's ID obtained from the search endpoint | "583f2f7ed9ced98ab5bfXXXX"
+id (optional) |  The person's ID obtained from the search endpoint | 583f2f7ed9ced98ab5bfXXXX
 linkedin_url (optional) | The person's linkedin URL | http://www.linkedin.com/in/tim-zheng
-reveal_personal_emails (optional) | Flag to reveal personal emails. Note: Personal emails will not be revelead for GDPR compliant regions | true
-reveal_phone_number (optional) | Flag to reveal phone number | true
-webhook_url (optional) | Webhook URL for sending 'reveal_phone_number' response | "https://example.com/hook"
+reveal_personal_emails (optional) | Flag to reveal personal emails. Default false. Note: Personal emails will not be revealed for GDPR compliant regions | false (default), true
+reveal_phone_number (optional) | Flag to reveal phone number. Default false. If you set to this true, Apollo will asynchronously verify direct dials for you, and you must specify a Webhook callback URL. | false (default), true
+webhook_url (optional) | Webhook callback URL for sending 'reveal_phone_number' response. This parameter is required if you request direct dials via "reveal_phone_number" | https://example.com/hook
 
 
 ## Bulk organization enrichment
@@ -1193,7 +1193,7 @@ print(response.text)
 }
 ```
 
-This endpoint enriches a person's information, the more information you pass in, the more likely we can find a match. This endpoint unveils the email addresses of new people. It will deduct **1 email credit** for each verified email found and **1 export credit** for teams utilizing Export Credits (in newer plans) for each non-empty record returned. Note that by default, this endpoint will not return emails or direct dials, because those fields incur additional credit charges. 
+This endpoint enriches a person's information, the more information you pass in, the more likely we can find a match. This endpoint unveils the email addresses of new people. It will deduct **1 email credit** for each verified email found and **1 export credit** for teams utilizing Export Credits (in newer plans) for each non-empty record returned. Note that by default, this endpoint will not return personal emails or phone numbers. Phone number fields incur additional credit charges.
 
 `POST https://api.apollo.io/v1/people/match`
 
@@ -1208,11 +1208,11 @@ email (optional) | The person's email | example@domain.com
 hashed_email (optional) | The person's md5 or sha256 hashed email | 8d935115b9ff4489f2d1f9249503cadf OR 97817c0c49994eb500ad0a5e7e2d8aed 51977b26424d508f66e4e8887746a152
 organization_name (optional) | The person's company name | Apollo Inc.
 domain (optional) | The person's company domain | apollo.io
-id (optional) |  The person's ID obtained from the search endpoint | "583f2f7ed9ced98ab5bfXXXX"
+id (optional) |  The person's ID obtained from the search endpoint | 583f2f7ed9ced98ab5bfXXXX
 linkedin_url (optional) | The person's linkedin URL | http://www.linkedin.com/in/tim-zheng
 reveal_personal_emails (optional) | Flag to reveal personal emails. Default false. Note: Personal emails will not be revealed for GDPR compliant regions | false (default), true
-reveal_phone_number (optional) | Flag to reveal phone number. Default false. If you set to this true, Apollo will asynchronously verify direct dials for you, and you must specify a callback URL. Phone numbers requested via this method can also be downloaded in Settings->Direct Dials Requests UI. | false (default), true
-webhook_url (optional) | Webhook callback URL for sending 'reveal_phone_number' response. This parameter is required if you request direct dials via "reveal_phone_number" | "https://example.com/hook"
+reveal_phone_number (optional) | Flag to reveal phone number. Default false. If you set to this true, Apollo will asynchronously verify direct dials for you, and you must specify a Webhook callback URL. | false (default), true
+webhook_url (optional) | Webhook callback URL for sending 'reveal_phone_number' response. This parameter is required if you request direct dials via "reveal_phone_number" | https://example.com/hook
 
 
 ## Organization enrichment
