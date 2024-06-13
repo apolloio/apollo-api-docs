@@ -1099,7 +1099,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 </span></code></pre></div>
 <p>This endpoint enriches people information in bulk - the more information you pass in, the more likely we can find a match. </p>
 
-<p>Up to 10 records can be enriched at the same time through this endpoint.  This endpoint unveils the email addresses of new people. It will deduct <strong>1 email credit</strong> for each verified email found and <strong>1 export credit</strong> for teams utilizing Export Credits (in newer plans) for each non-empty record returned</p>
+<p>Up to 10 records can be enriched at the same time through this endpoint.  This endpoint unveils the email addresses of new people. It will deduct <strong>1 email credit</strong> for each verified email found and <strong>1 export credit</strong> for teams utilizing Export Credits (in newer plans) for each non-empty record returned.  Note that by default, this endpoint will not return personal emails or phone numbers. Phone number fields incur additional credit charges.</p>
 <h3 id='rate-limits'>Rate limits</h3>
 <p>Rate limits on this endpoint are 1/10th of what is available on the single enrichment endpoint.</p>
 
@@ -1150,7 +1150,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <tr>
 <td>id (optional)</td>
 <td>The person&#39;s ID obtained from the search endpoint</td>
-<td>&quot;583f2f7ed9ced98ab5bfXXXX&quot;</td>
+<td>583f2f7ed9ced98ab5bfXXXX</td>
 </tr>
 <tr>
 <td>linkedin_url (optional)</td>
@@ -1159,18 +1159,18 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 </tr>
 <tr>
 <td>reveal_personal_emails (optional)</td>
-<td>Flag to reveal personal emails. Note: Personal emails will not be revelead for GDPR compliant regions</td>
-<td>true</td>
+<td>Flag to reveal personal emails. Default false. Note: Personal emails will not be revealed for GDPR compliant regions</td>
+<td>false (default), true</td>
 </tr>
 <tr>
 <td>reveal_phone_number (optional)</td>
-<td>Flag to reveal phone number</td>
-<td>true</td>
+<td>Flag to reveal phone number. Default false. If you set to this true, Apollo will asynchronously verify direct dials for you, and you must specify a Webhook callback URL.</td>
+<td>false (default), true</td>
 </tr>
 <tr>
 <td>webhook_url (optional)</td>
-<td>Webhook URL for sending &#39;reveal_phone_number&#39; response</td>
-<td>&quot;https://example.com/hook&quot;</td>
+<td>Webhook callback URL for sending &#39;reveal_phone_number&#39; response. This parameter is required if you request direct dials via &quot;reveal_phone_number&quot;</td>
+<td>https://example.com/hook</td>
 </tr>
 </tbody></table>
 <h2 id='bulk-organization-enrichment'>Bulk organization enrichment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
@@ -1815,7 +1815,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint enriches a person&#39;s information, the more information you pass in, the more likely we can find a match. This endpoint unveils the email addresses of new people. It will deduct <strong>1 email credit</strong> for each verified email found and <strong>1 export credit</strong> for teams utilizing Export Credits (in newer plans) for each non-empty record returned. Note that by default, this endpoint will not return emails or direct dials, because those fields incur additional credit charges. </p>
+<p>This endpoint enriches a person&#39;s information, the more information you pass in, the more likely we can find a match. This endpoint unveils the email addresses of new people. It will deduct <strong>1 email credit</strong> for each verified email found and <strong>1 export credit</strong> for teams utilizing Export Credits (in newer plans) for each non-empty record returned. Note that by default, this endpoint will not return personal emails or phone numbers. Phone number fields incur additional credit charges.</p>
 
 <p><code>POST https://api.apollo.io/v1/people/match</code></p>
 <h3 id='query-parameters'>Query parameters</h3>
@@ -1864,7 +1864,7 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 <tr>
 <td>id (optional)</td>
 <td>The person&#39;s ID obtained from the search endpoint</td>
-<td>&quot;583f2f7ed9ced98ab5bfXXXX&quot;</td>
+<td>583f2f7ed9ced98ab5bfXXXX</td>
 </tr>
 <tr>
 <td>linkedin_url (optional)</td>
@@ -1878,13 +1878,13 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 </tr>
 <tr>
 <td>reveal_phone_number (optional)</td>
-<td>Flag to reveal phone number. Default false. If you set to this true, Apollo will asynchronously verify direct dials for you, and you must specify a callback URL. Phone numbers requested via this method can also be downloaded in Settings-&gt;Direct Dials Requests UI.</td>
+<td>Flag to reveal phone number. Default false. If you set to this true, Apollo will asynchronously verify direct dials for you, and you must specify a Webhook callback URL.</td>
 <td>false (default), true</td>
 </tr>
 <tr>
 <td>webhook_url (optional)</td>
 <td>Webhook callback URL for sending &#39;reveal_phone_number&#39; response. This parameter is required if you request direct dials via &quot;reveal_phone_number&quot;</td>
-<td>&quot;https://example.com/hook&quot;</td>
+<td>https://example.com/hook</td>
 </tr>
 </tbody></table>
 <h2 id='organization-enrichment'>Organization enrichment</h2>
