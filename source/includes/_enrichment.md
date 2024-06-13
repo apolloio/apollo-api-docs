@@ -537,7 +537,7 @@ domain (optional) | The person's company domain | apollo.io
 id (optional) |  The person's ID obtained from the search endpoint | 583f2f7ed9ced98ab5bfXXXX
 linkedin_url (optional) | The person's linkedin URL | http://www.linkedin.com/in/tim-zheng
 reveal_personal_emails (optional) | Flag to reveal personal emails. Default false. Note: Personal emails will not be revealed for GDPR compliant regions | false (default), true
-reveal_phone_number (optional) | Flag to reveal phone number. Default false. If you set to this true, Apollo will asynchronously verify direct dials for you, and you must specify a Webhook callback URL. Phone numbers requested via this method can also be downloaded in Settings->Direct Dials Requests UI. | false (default), true
+reveal_phone_number (optional) | Flag to reveal phone number. Default false. If you set to this true, Apollo will asynchronously verify direct dials for you, and you must specify a Webhook callback URL. | false (default), true
 webhook_url (optional) | Webhook callback URL for sending 'reveal_phone_number' response. This parameter is required if you request direct dials via "reveal_phone_number" | https://example.com/hook
 
 
@@ -1211,7 +1211,7 @@ domain (optional) | The person's company domain | apollo.io
 id (optional) |  The person's ID obtained from the search endpoint | 583f2f7ed9ced98ab5bfXXXX
 linkedin_url (optional) | The person's linkedin URL | http://www.linkedin.com/in/tim-zheng
 reveal_personal_emails (optional) | Flag to reveal personal emails. Default false. Note: Personal emails will not be revealed for GDPR compliant regions | false (default), true
-reveal_phone_number (optional) | Flag to reveal phone number. Default false. If you set to this true, Apollo will asynchronously verify direct dials for you, and you must specify a Webhook callback URL. Phone numbers requested via this method can also be downloaded in Settings->Direct Dials Requests UI. | false (default), true
+reveal_phone_number (optional) | Flag to reveal phone number. Default false. If you set to this true, Apollo will asynchronously verify direct dials for you, and you must specify a Webhook callback URL. | false (default), true
 webhook_url (optional) | Webhook callback URL for sending 'reveal_phone_number' response. This parameter is required if you request direct dials via "reveal_phone_number" | https://example.com/hook
 
 
