@@ -1212,7 +1212,7 @@ id (optional) |  The person's ID obtained from the search endpoint | "583f2f7ed9
 linkedin_url (optional) | The person's linkedin URL | http://www.linkedin.com/in/tim-zheng
 reveal_personal_emails (optional) | Flag to reveal personal emails. Default false. Note: Personal emails will not be revealed for GDPR compliant regions | false (default), true
 reveal_phone_number (optional) | Flag to reveal phone number. Default false. If you set to this true, Apollo will asynchronously verify direct dials for you, and you must specify a callback URL. Phone numbers requested via this method can also be downloaded in Settings->Direct Dials Requests UI. | false (default), true
-webhook_url (optional) | Webhook URL for sending 'reveal_phone_number' response | "https://example.com/hook"
+webhook_url (optional) | Webhook callback URL for sending 'reveal_phone_number' response. This parameter is required if you request direct dials via "reveal_phone_number" | "https://example.com/hook"
 
 
 ## Organization enrichment
