@@ -115,6 +115,10 @@ print(response.text)
 ```
 This feature is not accessible to Apollo users on free plans.
 
+<aside class="notice">
+Note: The Search endpoint has a display limit of 50,000 records (100 records per page, up to 500 pages) to protect the platform's performance for all users. To navigate the records, please include more filters in your search to narrow down the results as much as possible. This paging limitation doesn't restrict your access to our database; it simply requires you to access the data in batches.
+</aside>
+
 `POST https://api.apollo.io/v1/emailer_campaigns/search`
 
 
