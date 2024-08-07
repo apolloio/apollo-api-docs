@@ -2388,6 +2388,10 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 </span></code></pre></div>
 <p>This endpoint searches for people and does not return any new email information. To get email information, use the &quot;enrich&quot; endpoint. Newer plans utilizing Export Credits will be deducting <strong>1 export credit</strong> when calling this endpoint. This feature is not accessible to Apollo users on free plans.</p>
 
+<aside class="notice">
+Note: The Search endpoint has a display limit of 50,000 records (100 records per page, up to 500 pages) to protect the platform's performance for all users. To navigate the records, please include more filters in your search to narrow down the results as much as possible. This paging limitation doesn't restrict your access to our database; it simply requires you to access the data in batches.
+</aside>
+
 <p><code>POST https://api.apollo.io/v1/mixed_people/search</code></p>
 <h3 id='query-parameters'>Query parameters</h3>
 <table><thead>
@@ -2711,6 +2715,10 @@ We use a fixed-window rate limiting strategy for calls to our API. If your team'
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint searches for organizations. Newer plans utilizing Export Credits will be deducting <strong>1 export credit</strong> when calling this endpoint. This feature is not accessible to Apollo users on free plans.</p>
+
+<aside class="notice">
+Note: The Search endpoint has a display limit of 50,000 records (100 records per page, up to 500 pages) to protect the platform's performance for all users. To navigate the records, please include more filters in your search to narrow down the results as much as possible. This paging limitation doesn't restrict your access to our database; it simply requires you to access the data in batches.
+</aside>
 
 <p><code>POST https://api.apollo.io/api/v1/mixed_companies/search</code></p>
 <h3 id='query-parameters-2'>Query parameters</h3>
@@ -3681,6 +3689,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </span></code></pre></div>
 <p>This feature is not accessible to Apollo users on free plans.</p>
 
+<aside class="notice">
+Note: The Search endpoint has a display limit of 50,000 records (100 records per page, up to 500 pages) to protect the platform's performance for all users. To navigate the records, please include more filters in your search to narrow down the results as much as possible. This paging limitation doesn't restrict your access to our database; it simply requires you to access the data in batches.
+</aside>
+
 <p><code>POST https://api.apollo.io/v1/contacts/search</code></p>
 
 <table><thead>
@@ -4324,6 +4336,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </span></code></pre></div>
 <p>This feature is not accessible to Apollo users on free plans.</p>
 
+<aside class="notice">
+Note: The Search endpoint has a display limit of 50,000 records (100 records per page, up to 500 pages) to protect the platform's performance for all users. To navigate the records, please include more filters in your search to narrow down the results as much as possible. This paging limitation doesn't restrict your access to our database; it simply requires you to access the data in batches.
+</aside>
+
 <p><code>POST https://api.apollo.io/v1/accounts/search</code></p>
 
 <table><thead>
@@ -4647,6 +4663,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This feature is not accessible to Apollo users on free plans.</p>
+
+<aside class="notice">
+Note: The Search endpoint has a display limit of 50,000 records (100 records per page, up to 500 pages) to protect the platform's performance for all users. To navigate the records, please include more filters in your search to narrow down the results as much as possible. This paging limitation doesn't restrict your access to our database; it simply requires you to access the data in batches.
+</aside>
 
 <p><code>POST https://api.apollo.io/v1/emailer_campaigns/search</code></p>
 
@@ -5496,7 +5516,10 @@ Do not pass in <code>contact_stage_id</code> in this endpoint. Use contacts/upda
     </span><span class="nl">"num_fetch_result"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This feature is not accessible to Apollo users on free plans.</p>
+<p>This feature is not accessible to Apollo users on free plans.
+<aside class="notice">
+Note: The Search endpoint has a display limit of 50,000 records (100 records per page, up to 500 pages) to protect the platform&#39;s performance for all users. To navigate the records, please include more filters in your search to narrow down the results as much as possible. This paging limitation doesn&#39;t restrict your access to our database; it simply requires you to access the data in batches.
+</aside></p>
 
 <p><code>GET https://api.apollo.io/v1/tasks/search</code></p>
 
