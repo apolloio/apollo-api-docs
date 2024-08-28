@@ -5,7 +5,7 @@ To access the Apollo API, you need to authenticate your requests. There are two 
 
 You should use OAuth 2.0 only if you are an Apollo Partner and want to utilize the Apollo API **on behalf of other Apollo users**. Otherwise, use API keys.
 
-You can request your OAuth 2.0 credentials and you API keys [in your API settings](https://app.apollo.io/#/settings/integrations/api).
+You can register for Oauth 2.0 or API keys [in your API settings](https://app.apollo.io/#/settings/integrations/api).
 
 ### OAuth 2.0
 All examples on this page use API keys for authentication. If you want to use OAuth 2.0, you should include the `Authorization` header instead of the `X-Api-Key` header to your requests. Learn more about it in [our knowledge base](https://knowledge.apollo.io/hc/en-us/articles/28620185633549).
