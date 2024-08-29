@@ -1,4 +1,17 @@
-### Deploy changes to the api doc site:
+## Usage
+
+### Using Docker
+Start a dev server and interact with it at http://localhost:4567/
+```bash
+docker run --rm --name slate -p 4567:4567 -v $(pwd)/source:/srv/slate/source slatedocs/slate serve
+```
+Deploy to production. Once your pull request (PR) is approved, merge it into the master branch and run the following commands in the master branch:
+```bash
+docker run --rm --name slate -v $(pwd)/build:/srv/slate/build -v $(pwd)/source:/srv/slate/source slatedocs/slate build
+./deploy.sh --push-only
+```
+
+### Using Natively
 
 1. ```bundle install```:
    - Use this command to install the required Ruby gems (dependencies) for your project.
@@ -7,7 +20,6 @@
 2. ```bundle exec middleman server```:
    - Run this command to start the Middleman static site generator in your project.
    - It launches a local development server, allowing you to preview and interact with your website or web application during development.
-   - For any
 
 3. ```./deploy.sh```:
    - Execute this command to run a shell script named `deploy.sh` which is responsible for deploying your project to a web server or hosting platform.
