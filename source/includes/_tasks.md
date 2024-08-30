@@ -102,7 +102,7 @@ headers = {
     'X-Api-Key': 'YOUR API KEY HERE'
 }
 
-response = requests.request("POST", url, headers=headers, params=querystring)
+response = requests.request("POST", url, headers=headers, json=querystring)
 
 print(response.text)
 ```
