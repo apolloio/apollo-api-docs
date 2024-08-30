@@ -89,7 +89,7 @@ import requests
 
 url = "https://api.apollo.io/v1/tasks/search"
 
-querystring = {
+data = {
     "sort_by_field": "task_created_at",
     "open_factor_names": [
         "task_types"
@@ -102,7 +102,7 @@ headers = {
     'X-Api-Key': 'YOUR API KEY HERE'
 }
 
-response = requests.request("POST", url, headers=headers, json=querystring)
+response = requests.request("POST", url, headers=headers, json=data)
 
 print(response.text)
 ```
