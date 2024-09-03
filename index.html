@@ -314,6 +314,14 @@
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#oauth-2-0" class="toc-h2 toc-link" data-title="OAuth 2.0">OAuth 2.0</a>
+                  </li>
+                  <li>
+                    <a href="#api-keys" class="toc-h2 toc-link" data-title="API keys">API keys</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#rate-limits" class="toc-h1 toc-link" data-title="Rate limits">Rate limits</a>
@@ -488,11 +496,18 @@ Note: Users of curl.exe on Windows OS must escape all double quotes for requests
  <code> i.e doublequotes around data, and doublequotes escaped with a backslash </code>
 </aside>
 <h1 id='authentication'>Authentication</h1>
+<p>To access the Apollo API, you need to authenticate your requests. There are two ways to do this: OAuth 2.0 and API keys.</p>
+
+<p>You should use OAuth 2.0 only if you are an Apollo Partner and want to utilize the Apollo API <strong>on behalf of other Apollo users</strong>. Otherwise, use API keys.</p>
+
+<p>You can register for Oauth 2.0 or API keys <a href="https://app.apollo.io/#/settings/integrations/api">in your API settings</a>.</p>
+<h3 id='oauth-2-0'>OAuth 2.0</h3>
+<p>All examples on this page use API keys for authentication. If you want to use OAuth 2.0, you should include the <code>Authorization</code> header instead of the <code>X-Api-Key</code> header to your requests. Learn more about it in <a href="https://knowledge.apollo.io/hc/en-us/articles/28620185633549">our knowledge base</a>.</p>
+<h3 id='api-keys'>API keys</h3>
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="s2">"https://api.apollo.io/v1/auth/health"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="s2">"https://api.apollo.io/v1/auth/health"</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/auth/health"</span>
@@ -508,16 +523,10 @@ curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
-<p>If authentication is successful, you should expect to see {&quot;is_logged_in&quot;:true}</p>
+<p>If authentication is successful, you should see <code>{&quot;is_logged_in&quot;:true}</code></p>
 </blockquote>
 
-<p>Apollo uses API keys to allow access to the API. You may request an API key <a href="https://app.apollo.io/#/settings/integrations/api">here</a></p>
-
-<p>Apollo expects the API key to be included in all API requests to the server as a query string parameter. </p>
-
-<aside class="notice">
-You must replace <code>YOUR_API_KEY</code> with your personal API key.
-</aside>
+<p>If you want to use API keys for authentication, you should include your API key in your requests as the <code>X-Api-Key</code> header value. In all examples on this page, replace <code>YOUR API KEY HERE</code> with your real API key. Learn more about it in <a href="https://knowledge.apollo.io/hc/en-us/articles/4415734629773">our knowledge base</a>.</p>
 <h1 id='rate-limits'>Rate limits</h1>
 <blockquote>
 <p>Sample response:</p>
