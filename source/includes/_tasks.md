@@ -75,9 +75,9 @@ print(response.text)
 > Sample request:
 
 ```shell
-curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" -d '{
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "X-Api-Key: YOUR API KEY HERE" -d '{
     "sort_by_field": "task_created_at",
-    "per_page": 200,
+    "per_page": 100,
     "open_factor_names": [
         "task_types"
     ]
@@ -89,7 +89,7 @@ import requests
 
 url = "https://api.apollo.io/v1/tasks/search"
 
-querystring = {
+data = {
     "sort_by_field": "task_created_at",
     "open_factor_names": [
         "task_types"
@@ -102,7 +102,7 @@ headers = {
     'X-Api-Key': 'YOUR API KEY HERE'
 }
 
-response = requests.request("GET", url, headers=headers, params=querystring)
+response = requests.request("POST", url, headers=headers, json=data)
 
 print(response.text)
 ```
@@ -419,7 +419,7 @@ This feature is not accessible to Apollo users on free plans.
 Note: The Search endpoint has a display limit of 50,000 records (100 records per page, up to 500 pages) to protect the platform's performance for all users. To navigate the records, please include more filters in your search to narrow down the results as much as possible. This paging limitation doesn't restrict your access to our database; it simply requires you to access the data in batches.
 </aside>
 
-`GET https://api.apollo.io/v1/tasks/search`
+`POST https://api.apollo.io/v1/tasks/search`
 
 | Parameter                    | Description                                                     | Example        |
 | ---------------------------- | --------------------------------------------------------------- | -------------- |

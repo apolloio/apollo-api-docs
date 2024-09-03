@@ -13,6 +13,14 @@
    - Execute this command to run a shell script named `deploy.sh` which is responsible for deploying your project to a web server or hosting platform.
    - Once your pull request (PR) is approved, merge it into the master branch and run the following command in the master branch
 
+## Testing
+
+Install `requests`
+```bash
+/usr/bin/python3 -m pip install requests
+```
+Run Python examples in `/usr/bin/python3`
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/slatedocs/img/main/logo-slate.png" alt="Slate: API Documentation Generator" width="226">
   <br>
