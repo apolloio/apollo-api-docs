@@ -5185,9 +5185,9 @@ Note: The Search endpoint has a display limit of 50,000 records (100 records per
 <blockquote>
 <p>Sample request:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-H</span> <span class="s2">"Cache-Control: no-cache"</span> <span class="nt">-H</span> <span class="s2">"X-Api-Key: YOUR API KEY HERE"</span> <span class="nt">-d</span> <span class="s1">'{
     "sort_by_field": "task_created_at",
-    "per_page": 200,
+    "per_page": 100,
     "open_factor_names": [
         "task_types"
     ]
@@ -5196,7 +5196,7 @@ Note: The Search endpoint has a display limit of 50,000 records (100 records per
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.apollo.io/v1/tasks/search"</span>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"sort_by_field"</span><span class="p">:</span> <span class="s">"task_created_at"</span><span class="p">,</span>
     <span class="s">"open_factor_names"</span><span class="p">:</span> <span class="p">[</span>
         <span class="s">"task_types"</span>
@@ -5209,7 +5209,7 @@ Note: The Search endpoint has a display limit of 50,000 records (100 records per
     <span class="s">'X-Api-Key'</span><span class="p">:</span> <span class="s">'YOUR API KEY HERE'</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
@@ -5524,7 +5524,7 @@ Note: The Search endpoint has a display limit of 50,000 records (100 records per
 Note: The Search endpoint has a display limit of 50,000 records (100 records per page, up to 500 pages) to protect the platform&#39;s performance for all users. To navigate the records, please include more filters in your search to narrow down the results as much as possible. This paging limitation doesn&#39;t restrict your access to our database; it simply requires you to access the data in batches.
 </aside></p>
 
-<p><code>GET https://api.apollo.io/v1/tasks/search</code></p>
+<p><code>POST https://api.apollo.io/v1/tasks/search</code></p>
 
 <table><thead>
 <tr>
