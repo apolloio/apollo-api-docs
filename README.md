@@ -1,3 +1,5 @@
+> ### 🚨 **This repo has been deprecated and the API docs are now maintained by [#kb-management](https://apolloio.slack.com/archives/CURPS1Z9S) and powered by [readme.com](https://readme.com/)** 🚨
+
 ## Usage
 
 ### Using Docker
